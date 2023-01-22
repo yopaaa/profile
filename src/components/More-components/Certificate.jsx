@@ -18,6 +18,7 @@ const Certificate = () => {
             <div class="card-body">
               <h4 title="view certificates" style={{fontWeight: "bold"}}>{value.name} - {value.competition}</h4>
               <p style={{ fontSize: "14px" }}>{value.des}</p>
+              <a href={value.link} style={{color: "blue", fontSize: "12px"}} target="_blank" rel="noreferrer">view</a>
               <p style={{ fontSize: "12px" }}>{value.date}</p>
             </div>
           </div>

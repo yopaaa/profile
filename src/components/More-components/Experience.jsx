@@ -25,6 +25,7 @@ const Experience = () => {
         );
       })
     );
+    if(datas.length < 1) setcontent(<div style={{fontStyle: "italic"}}>No work experience now :)</div>)
   }
 
   useEffect(() => {

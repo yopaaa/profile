@@ -12,7 +12,7 @@ const Home = () => {
     {name: 'Repository', value: Repository},
     {name: "Link", value: MoreLink},
     {name: "Certificate", value: Certificate},
-    {name: "Skils", value: Skils},
+    {name: "Tools and Skils", value: Skils},
     {name: "Experience",value: Experience},
     {name: "Mail Me", value: MailMe},
   ];
