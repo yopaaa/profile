@@ -77,6 +77,8 @@ const link = {
     },
   ],
   skils: [
+    "c++",
+    "Arduino",
     "Node js",
     "Java Script",
     "HTML",
@@ -86,7 +88,7 @@ const link = {
     "Linux desktop",
     "Windows",
     "Redis",
-    "Network",
+    "Networking",
     "Docker",
     "AWS",
     "Mongo DB",
