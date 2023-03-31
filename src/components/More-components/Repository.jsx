@@ -7,7 +7,7 @@ const Repository = () => {
 
   async function getRepo() {
     const datas = await axios.get(
-      "https://api.github.com/users/yopaaa/repos?sort=updated"
+      "https://api.github.com/users/yopaaa/repos?sort=pushed"
     );
     setRepoList(
       datas.data.map((val) => {
@@ -24,11 +24,16 @@ const Repository = () => {
               {val.description}
             </p>
             <div className="repository-time">
+              <p title="created at">
+                created at {moment(val.created_at).startOf("second").fromNow()}
+              </p>
+
               <p title="updated at">
                 updated at {moment(val.updated_at).startOf("second").fromNow()}
               </p>
-              <p title="created at">
-                created at {moment(val.created_at).startOf("second").fromNow()}
+
+              <p title="pushed at">
+                pushed at {moment(val.pushed_at).startOf("second").fromNow()}
               </p>
             </div>
           </div>

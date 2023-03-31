@@ -2,44 +2,44 @@ const link = {
   name: "Yopa pitra ramadhani",
   des: "``I am a programmer with experience in developing web applications. I am highly interested in the latest technologies and always strive to improve my programming skills. I am very comfortable working in a team and sharing knowledge with my colleagues.``",
   address: "Bangka-Belitung Islands, Indonesia",
-  work: "Nodejs developer",
+  work: "Fullstack developer",
   email: "yopapitrar@gmail.com",
   githubUsername: "yopaaa",
   link: [
     {
       name: "github",
       link: "https://github.com/yopaaa",
-      img: "/images/icon/github.png"
+      img: "/images/icon/github.png",
     },
     {
       name: "linkedin",
       link: "https://www.linkedin.com/in/yopaaa/",
-      img: "/images/icon/linkedin.png"
+      img: "/images/icon/linkedin.png",
     },
     {
       name: "Email me",
       link: "mailto:yopapitrar@gmail.com",
-      img: "/images/icon/email.png"
+      img: "/images/icon/email.png",
     },
     {
       name: "Instagram",
       link: "https://instagram.com/yopapr",
-      img: "/images/icon/instagram.png"
+      img: "/images/icon/instagram.png",
     },
     {
       name: "youtube",
       link: "https://youtube.com",
-      img: "/images/icon/youtube.png"
+      img: "/images/icon/youtube.png",
     },
     {
       name: "twitter",
       link: "https://twitter.com",
-      img: "/images/icon/all.png"
+      img: "/images/icon/all.png",
     },
     {
       name: "fecebook",
       link: "https://fecebook.com",
-      img: "/images/icon/all.png"
+      img: "/images/icon/all.png",
     },
   ],
   Certificate: [
@@ -49,7 +49,7 @@ const link = {
       des: "Creating and deploying scalable and efficient cloud-based applications, successfully achieving a medal of excellence.",
       img: "/images/LKSN.png",
       date: "October 29, 2022",
-      link: "/Document/sertifikat-lks-nasional-yopa-Excellence.pdf"
+      link: "/Document/sertifikat-lks-nasional-yopa-Excellence.pdf",
     },
     {
       name: "Dicoding",
@@ -57,7 +57,7 @@ const link = {
       des: "Learning to create a backend application using Node.js technology and Hapi as the framework.",
       img: "/images/dicoding.png",
       date: "November 17, 2022",
-      link: "https://www.dicoding.com/certificates/1OP850G81PQK"
+      link: "https://www.dicoding.com/certificates/1OP850G81PQK",
     },
     {
       name: "LKS Province 2022",
@@ -65,7 +65,7 @@ const link = {
       des: "Successfully obtained first place in the Provincial Science Competition, thus having the opportunity to represent Bangka Belitung Islands at the national level",
       img: "/images/scholl.png",
       date: "27 August 22",
-      link: "/Document/Sertifikat-Juara-LKS-SMK-2022.pdf"
+      link: "/Document/Sertifikat-Juara-LKS-SMK-2022.pdf",
     },
     {
       name: "Dicoding",
@@ -73,7 +73,7 @@ const link = {
       des: "certificate of graduation from dicoding indonesia, i got it in june 2022",
       img: "/images/dicoding.png",
       date: "June 23, 2022",
-      link: "https://www.dicoding.com/certificates/81P2GVOVOPOY"
+      link: "https://www.dicoding.com/certificates/81P2GVOVOPOY",
     },
   ],
   skils: [
@@ -94,7 +94,11 @@ const link = {
     "Mongo DB",
     "Mysql",
     "Git",
-    "Vs Code"
+    "Vs Code",
+    "C++",
+    "Arduino",
+    "React native",
+    "Nextjs",
   ],
   experience: [
     // {
