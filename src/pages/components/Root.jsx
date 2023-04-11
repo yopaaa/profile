@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import Home from "./Home";
 import More from "./More";
 

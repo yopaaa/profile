@@ -15,6 +15,20 @@
     scrollbar-width: none;
 }
 
+body{
+    background-image: url("/images/bg.webp");
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+
+
+
+
+
+
+
+
 .link-list {
     display: flex;
     gap: 20px;

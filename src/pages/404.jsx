@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Error = () => {
   const [code, setCode] = useState(400);
   const [codeMsg, setCodeMsg] = useState("Bad request");
-  const params = new URL(window.location.href).searchParams;
+  let params;
   const status = {
     400: "Bad Request",
     401: "Unauthorized",
@@ -49,6 +49,7 @@ const Error = () => {
   };
 
   useEffect(() => {
+    params = new URL(window.location.href).searchParams;
     const paramCode = Number(params.get("code")) || 404;
 
     setCode(paramCode > 399 ? paramCode : 404);
@@ -75,7 +76,9 @@ const Error = () => {
       >
         {code}
       </h1>
-      <p id="codeMsg">{codeMsg}</p>
+      <p id="codeMsg" style={{ color: "white", fontWeight: "bold" }}>
+        {codeMsg}
+      </p>
       <br />
       <br />
       <a href=".." style={{ fontSize: "16px" }}>

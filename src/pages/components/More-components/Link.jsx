@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
-import data from "../data/data.js";
+import data from "../../../data/data.js";
 
-const Skils = () => {
+const Link = () => {
   const [list, setList] = useState();
 
   useEffect(() => {
-    const datas = data.skils.reverse()
+    const datas = data.link.reverse()
     setList(
       datas.map((val) => {
         return (
           <div className="more-Link-container">
             <span className="name" title={val.name}>
-              {val}
+              <a href={val.link} target="_blank" rel="noreferrer">
+                {val.name}
+              </a>
             </span>
           </div>
         );
@@ -19,8 +21,6 @@ const Skils = () => {
     );
   }, []);
   return <div>{list}</div>;
-}
+};
 
-export default Skils
-
-
+export default Link;

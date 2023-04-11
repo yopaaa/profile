@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "./Home-componts/Link";
-import data from "./data/data.js";
-import "./style.css";
+import data from "../../data/data.js";
 
 const Home = () => {
   const profile = "/images/profile.webp";

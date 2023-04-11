@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import data from "../data/data.js";
+import data from "../../../data/data.js";
 
 const Certificate = () => {
   const [content, setcontent] = useState();
