@@ -15,7 +15,7 @@
     scrollbar-width: none;
 }
 
-body{
+body {
     background-image: url("/images/bg.webp");
     background-size: cover;
     background-repeat: repeat;
@@ -40,10 +40,14 @@ body{
 
 .backBtn {
     cursor: pointer;
+    background: rgb(4, 120, 87, .8);
+    padding: 3px;
+    border-radius: 5px;
+    color: white;
 }
 
 .backBtn:hover {
-    color: blue;
+    background-color: rgba(6, 78, 59, 1.1);
 }
 
 .content {
@@ -198,6 +202,17 @@ body{
     align-items: flex-start;
     padding: 10px;
     text-transform: capitalize;
+}
+
+.visitor {
+    position: fixed;
+    left: 0;
+    color: white;
+    /* top: 0; */
+    bottom: 0;
+    font-size: .6em;
+    opacity: .5;
+    padding: 10px;
 }
 
 

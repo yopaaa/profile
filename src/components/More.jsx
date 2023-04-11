@@ -7,14 +7,17 @@ import Skils from "./More-components/Skils";
 import Experience from "./More-components/Experience";
 
 const Home = () => {
+  const [visitor, setVisitor] = useState("100");
+
   const profile = "/images/profile.webp";
   const contentList = [
-    {name: 'Repository', value: Repository},
-    {name: "Link", value: MoreLink},
-    {name: "Certificate", value: Certificate},
-    {name: "Tools and Skils", value: Skils},
-    {name: "Experience",value: Experience},
-    {name: "Mail Me", value: MailMe},
+    { name: "Repository", value: Repository },
+    { name: "Link", value: MoreLink },
+    { name: "Certificate", value: Certificate },
+    { name: "Tools and Skils", value: Skils },
+    { name: "Experience", value: Experience },
+    { name: "Blog", value: Experience },
+    { name: "Mail Me", value: MailMe },
   ];
   const [repoContentNavigation, setrepoContentNavigation] = useState();
   const [content, setcontent] = useState();
@@ -28,11 +31,6 @@ const Home = () => {
             document.querySelector(".repo").style.display = "none";
           }}
           className="backBtn"
-          style={{
-            background: "rgb(4,120,87, .8)",
-            padding: "3px",
-            borderRadius: "5px",
-          }}
         >
           Back
         </p>
@@ -45,7 +43,8 @@ const Home = () => {
                 getNav(name);
                 getContent(name);
               }}
-              className={curretPage === name ? "backBtn curretPage" : "backBtn"}
+              className={curretPage === name ? " curretPage" : ""}
+              style={{cursor: "pointer"}}
             >
               {name}
             </p>
@@ -72,6 +71,10 @@ const Home = () => {
 
   return (
     <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+      <div className="visitor">
+        Visitors from April 12th, 2023 until now. : {visitor}
+      </div>
+
       <div
         id="profile"
         className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"

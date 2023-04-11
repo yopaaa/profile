@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import data from "../../../data/data.js";
+import data from "../../data/data.js";
 
 const MailMe = () => {
   const [mailBody, setMailBody] = useState("");

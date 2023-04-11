@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import data from "../../../data/data.js";
+import data from "../../data/data.js";
 
 const Link = () => {
   const [list, setList] = useState();

@@ -72,6 +72,7 @@ const Error = () => {
         style={{
           fontSize: "300px",
           textShadow: "-4px -4px 0 #2943d1, 4px 4px 0 #f00",
+          userSelect: "none"
         }}
       >
         {code}
@@ -81,7 +82,7 @@ const Error = () => {
       </p>
       <br />
       <br />
-      <a href=".." style={{ fontSize: "16px" }}>
+      <a href=".." style={{ fontSize: "16px", color: "white" }}>
         Back
       </a>
     </div>
