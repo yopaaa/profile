@@ -2,11 +2,7 @@ import Head from "next/head";
 import Home from "../components/Home";
 import More from "../components/More";
 import data from "../data/data";
-import { getCookies, hasCookie, setCookie } from "cookies-next";
-import Visitors from "../controllers/Visitors";
-import { nanoid } from "nanoid";
 import parser from "ua-parser-js";
-import axios from "axios";
 
 export default function Index({}) {
   return (
@@ -35,36 +31,13 @@ export default function Index({}) {
 }
 
 export async function getServerSideProps(context) {
-  const reqRes = {
-    req: context.req,
-    res: context.res,
-  };
   const visitor = parser(context.req.headers["user-agent"]);
   const ipAddress =
     context.req.headers["x-forwarded-for"] ||
     context.req.connection.remoteAddress;
-
-  if (!hasCookie("isVisitor", { ...reqRes })) {
-    setCookie("isVisitor", "true", {
-      httpOnly: true,
-      maxAge: 60 * 60,
-      ...reqRes,
-    });
-    console.log("new visitor found");
-
-    visitor._id = nanoid();
-    visitor.visitor = {};
-    try {
-    const extractIp = await axios.get(`https://ipapi.co/${ipAddress}/json/`);
-    visitor.visitor = extractIp.data;
-    } catch (error) {
-    visitor.visitor = ipAddress;
-    }
-
-    Visitors.insertOne(visitor);
-  } else {
-    console.log(ipAddress);
-  }
+  visitor.visitor = {};
+  visitor.visitor = ipAddress;
+  console.log(visitor);
   return {
     props: {},
   };
