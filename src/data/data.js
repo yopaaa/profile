@@ -110,6 +110,7 @@ const link = {
     //   toDate: "1 january 23",
     // },
   ],
+  blog: []
 };
 
 export default link;
