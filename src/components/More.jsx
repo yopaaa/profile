@@ -6,6 +6,7 @@ import Certificate from "./More-components/Certificate";
 import Skils from "./More-components/Skils";
 import Experience from "./More-components/Experience";
 import Blog from "./More-components/Blog";
+import { useRouter } from "next/router";
 
 const Home = () => {
   const contentList = [
@@ -19,14 +20,20 @@ const Home = () => {
   ];
   const [repoContentNavigation, setrepoContentNavigation] = useState();
   const [content, setcontent] = useState();
+  const router = useRouter();
+  const page = router.query.page || "Repository";
+  const isExistPage = contentList.find((value) => value.name === page)
+    ? true
+    : false;
 
   function getNav(curretPage = "Repository") {
     setrepoContentNavigation(
       <div className="repo-content-navigation">
         <p
           onClick={() => {
-            document.querySelector(".home").style.display = "block";
-            document.querySelector(".repo").style.display = "none";
+             router.push("/", "/", {
+               shallow: true,
+             });
           }}
           className="backBtn"
         >
@@ -40,9 +47,11 @@ const Home = () => {
               onClick={(ev) => {
                 getNav(name);
                 getContent(name);
+                router.push(`?page=${name}`);
               }}
               className={curretPage === name ? " curretPage" : ""}
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
+              key={name}
             >
               {name}
             </p>
@@ -55,16 +64,21 @@ const Home = () => {
   function getContent(name) {
     const Result = contentList.find((value) => value.name === name).value;
     setcontent(
-      <div>
+      <>
         <Result />
-      </div>
+      </>
     );
-    return true;
   }
 
   useEffect(() => {
-    getNav();
-    getContent("Repository");
+    if (isExistPage) {
+      getNav(page);
+      getContent(page);
+    } else {
+      getNav("Repository");
+      getContent("Repository");
+      router.push(`/more?page=Repository`);
+    }
   }, []);
 
   return (

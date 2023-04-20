@@ -9,7 +9,7 @@ const Link = () => {
     setList(
       datas.map((val) => {
         return (
-          <div className="more-Link-container">
+          <div className="more-Link-container" key={val.name} >
             <span className="name" title={val.name}>
               <a href={val.link} target="_blank" rel="noreferrer">
                 {val.name}

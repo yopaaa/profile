@@ -96,7 +96,6 @@ const link = {
     "Git",
     "Vs Code",
     "C++",
-    "Arduino",
     "React native",
     "Nextjs",
   ],

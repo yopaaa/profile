@@ -9,8 +9,8 @@ const Skils = () => {
     setList(
       datas.map((val) => {
         return (
-          <div className="more-Link-container">
-            <span className="name" title={val.name}>
+          <div className="more-Link-container" key={val}>
+            <span className="name" title={val}>
               {val}
             </span>
           </div>
@@ -18,7 +18,7 @@ const Skils = () => {
       })
     );
   }, []);
-  return <div>{list}</div>;
+  return <>{list}</>;
 }
 
 export default Skils

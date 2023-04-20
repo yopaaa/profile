@@ -1,8 +1,11 @@
 import React from "react";
 import Link from "./Home-componts/Link";
 import data from "../data/data.js";
+import { useRouter } from "next/router";
 
 const Home = () => {
+  const router = useRouter();
+
   return (
     <>
       <div>
@@ -40,8 +43,9 @@ const Home = () => {
           <button
             className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
             onClick={(ev) => {
-              document.querySelector(".home").style.display = "none";
-              document.querySelector(".repo").style.display = "block";
+              router.push("/more", "/more", {
+                shallow: true,
+              });
             }}
             title="View more information"
           >

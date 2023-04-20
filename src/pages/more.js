@@ -32,9 +32,7 @@ export default function Index({}) {
               title="profile"
             />
 
-              <Home />
-           
-           
+            <More />
           </div>
         </div>
         <div className="w-full lg:w-2/5">

@@ -9,14 +9,14 @@ const Experience = () => {
     setcontent(
       datas.map((value) => {
         return (
-          <div class="card">
-            <div class="card-header">
+          <div className="card" key={value.name}>
+            <div className="card-header">
               <img
                 src={value.img}
                 alt="rover"
               />
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <h4 title="view details" style={{fontWeight: "bold"}}>{value.name} - {value.position}</h4>
               <p style={{ fontSize: "14px" }}>{value.des}</p>
               <p style={{ fontSize: "12px" }}>{value.fromDate + " - " + value.toDate}</p>
@@ -31,7 +31,7 @@ const Experience = () => {
   useEffect(() => {
     getcontent();
   }, []);
-  return <div class="container-certificate">{content}</div>;
+  return <div className="container-certificate">{content}</div>;
 }
 
 export default Experience

@@ -94,6 +94,10 @@ body {
     font-size: 11px;
     justify-content: space-around;
 }
+.repository-time p {
+    padding-top: 10px;
+    font-size: 10px;
+}
 
 .navigation-home {
     border-top: 10px;

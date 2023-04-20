@@ -1,11 +1,8 @@
 import Head from "next/head";
-import Home from "../components/Home";
-import More from "../components/More";
 import data from "../data/data";
-import parser from "ua-parser-js";
 
 export default function Index({}) {
-  const profile = "/images/profile.webp";
+const profile = "/images/profile.webp";
 
   return (
     <>
@@ -32,9 +29,8 @@ export default function Index({}) {
               title="profile"
             />
 
-              <Home />
-           
-           
+          
+
           </div>
         </div>
         <div className="w-full lg:w-2/5">
@@ -49,15 +45,3 @@ export default function Index({}) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const visitor = parser(context.req.headers["user-agent"]);
-  const ipAddress =
-    context.req.headers["x-forwarded-for"] ||
-    context.req.connection.remoteAddress;
-  visitor.visitor = {};
-  visitor.visitor = ipAddress;
-  console.log(visitor);
-  return {
-    props: {},
-  };
-}

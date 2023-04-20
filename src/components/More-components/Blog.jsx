@@ -8,14 +8,14 @@ const Certificate = () => {
     setcontent(
       data.blog.map((value) => {
         return (
-          <div class="card">
-            <div class="card-header">
+          <div className="card">
+            <div className="card-header">
               <img
                 src={value.img}
                 alt="rover"
               />
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <h4 title="view certificates" style={{fontWeight: "bold"}}>{value.name} - {value.competition}</h4>
               <p style={{ fontSize: "14px" }}>{value.des}</p>
               <a href={value.link} style={{color: "blue", fontSize: "12px"}} target="_blank" rel="noreferrer">view</a>
@@ -30,7 +30,7 @@ const Certificate = () => {
   useEffect(() => {
     getcontent();
   }, []);
-  return <div class="container-certificate">{content}</div>;
+  return <div className="container-certificate">{content}</div>;
 };
 
 export default Certificate;

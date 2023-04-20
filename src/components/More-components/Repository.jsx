@@ -13,7 +13,7 @@ const Repository = () => {
       datas.data.map((val) => {
         // console.log(val);
         return (
-          <div className="repository-container">
+          <div className="repository-container" key={val.full_name}>
             <span className="name" title="name">
               <a href={val.html_url} target="_blank" rel="noreferrer">
                 {val.full_name}
