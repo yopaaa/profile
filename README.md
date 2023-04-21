@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Foobar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a profile website built using Next.js, a popular 
+React-based framework that leverages server-side rendering (SSR) for faster load times and improved SEO. The website serves as a personal profile or portfolio, showing skills, experience, and projects. By utilizing SSR, the website loads quickly, which enhances the user experience and makes it easier for search engines to index and rank the website. 
 
-## Available Scripts
 
-In the project directory, you can run:
+inspiration from [tailwindtoolbox](https://github.com/tailwindtoolbox/Profile-Card)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To install and run this project locally, follow these steps:
 
-### `npm test`
+```bash
+git clone https://github.com/yopaaa/profile.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+cd profile
 
-### `npm run build`
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run dev
+```
+>Open your web browser and navigate to http://localhost:3000 to view the website.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+That's it! You should now be able to view the profile website on your local machine. If you encounter any issues or have any questions, please refer to the project's GitHub repository for more information.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Modify web content
 
-### `npm run eject`
+The content section of the profile website includes all of the personal information, such as name, address, work experience, email, social media links, skills, certificates, and more. To edit this section, you will need to modify the data.js file located in the `src/data` directory of the project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To get started, open the data.js file and locate the `data` object. This object contains all of the personal information for the profile website. To modify the content, simply update the values for each key. For example, to change the name, update the name key as follows:
+```json
+{
+  name: "Your Name Here",
+...
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Similarly, you can modify the other keys to update the relevant information. Here's an example of how to update the Certificate object:
+```json
+Certificate: [
+  {
+    name: "Coursera",
+    competition: "Machine Learning",
+    des: "Certificate of completion from Coursera on Machine Learning, earned in 2022",
+    img: "/images/coursera.png",
+    date: "August 1, 2022",
+    link: "https://www.coursera.org/account/accomplishments/certificate/XXXXXXX",
+  },
+],
+```
+Make sure to save your changes and verify that they are reflected in the website by running the development server using the `npm run dev` command.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+That's it! You should now be able to modify the content of your profile website by editing the `data.js` file. For more information on the structure of the link object and other sections of the website, please refer to the project's 
+[GitHub repository.](https://github.com/yopaaa/profile)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions to this project are welcome and encouraged! If you would like to contribute, please follow these steps:
 
-### Code Splitting
+- Fork the project by clicking the "Fork" button in the top-right corner of the project's GitHub repository page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Clone your forked repository to your local machine: 
+```bash
+git clone https://github.com/your-username/profile.git
+```
 
-### Analyzing the Bundle Size
+- Create a new branch for your changes:
+```bash
+git checkout -b your-branch-name
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Make your changes and test them using the development server:
+```bash
+npm run dev
+```
 
-### Making a Progressive Web App
+- Commit your changes with a descriptive message:
+```bash
+git commit -m "Add feature xyz"
+```
+- Push your changes to your forked repository:
+```bash
+git push origin your-branch-name
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Once your pull request is submitted, it will be reviewed by the project maintainers, who may request changes or suggest improvements. Please note that all contributions are subject to review and approval, and must adhere to the project's code of conduct.
 
-### Advanced Configuration
+That's it! Thank you for considering contributing to this project. If you have any questions or need further guidance, please refer to the project's [GitHub](https://github.com/yopaaa/profile) repository or open an issue.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License 
 
-### `npm run build` fails to minify
+The MIT License is a permissive open-source software license that allows for the reuse of the software in both open-source and proprietary projects. Under the terms of the license, you are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to the following conditions:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+- The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.
+
+- In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+
+By contributing to this project, you agree to license your contributions under the terms of the MIT License.

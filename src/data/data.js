@@ -1,4 +1,4 @@
-const link = {
+const data = {
   name: "Yopa pitra ramadhani",
   des: "``I am a programmer with experience in developing web applications. I am highly interested in the latest technologies and always strive to improve my programming skills. I am very comfortable working in a team and sharing knowledge with my colleagues.``",
   address: "Bangka-Belitung Islands, Indonesia",
@@ -112,4 +112,4 @@ const link = {
   blog: []
 };
 
-export default link;
+export default data;
