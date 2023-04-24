@@ -1,6 +1,6 @@
 const data = {
   name: "Yopa pitra ramadhani",
-  des: "``I am a programmer with experience in developing web applications. I am highly interested in the latest technologies and always strive to improve my programming skills. I am very comfortable working in a team and sharing knowledge with my colleagues.``",
+  des: "``I am a student of computer network engineering who possesses skills in web programming, IoT, and cloud computing. I am very enthusiastic and always eager to learn new things in the field of information technology. I hope to utilize my skills to contribute to the world of technology and achieve success in the future.``",
   address: "Bangka-Belitung Islands, Indonesia",
   work: "Fullstack developer",
   email: "yopapitrar@gmail.com",
