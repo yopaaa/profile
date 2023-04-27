@@ -64,11 +64,16 @@ export async function getServerSideProps(context) {
     res: context.res,
   };
   const visitor = parser(context.req.headers["user-agent"]);
+  const isNewVisitor = !hasCookie("isVisitor", { ...reqRes });
+  const backendPath = process.env.BACKEND_HOST;
   const ipAddress =
     context.req.headers["x-forwarded-for"] ||
     context.req.connection.remoteAddress;
-  const isNewVisitor = !hasCookie("isVisitor", { ...reqRes });
-  const backendPath = process.env.BACKEND_HOST;
+  const axiosConfig = {
+    headers: {
+      Origin: "http://" + context.req.headers.host,
+    },
+  };
   let visitorCount;
 
   if (isNewVisitor) {
@@ -79,6 +84,7 @@ export async function getServerSideProps(context) {
     });
     console.log("new visitor found : " + ipAddress);
 
+    // get more info from ip address with ipapi api
     try {
       const extractIp = await axios.get(`https://ipapi.co/${ipAddress}/json/`);
       visitor.visitor = extractIp.data;
@@ -87,21 +93,23 @@ export async function getServerSideProps(context) {
       visitor.visitor = ipAddress;
     }
 
+    // send new visitor data to backend
     try {
-      axios.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor);
+      axios.post(
+        `${backendPath}/visitors/${data.githubUsername}/new`,
+        visitor,
+        axiosConfig
+      );
     } catch (error) {
       console.log(error.message);
     }
   }
 
+  // get visitor count from backend
   try {
     const getVisitorCount = await axios.get(
       `${backendPath}/visitors/${data.githubUsername}/count`,
-      {
-        // headers: {
-        //   Origin: "http://127.0.0.1:3000", // ganti dengan URL domain atau alamat IP dari frontend Anda
-        // },
-      }
+      axiosConfig
     );
     visitorCount = getVisitorCount.data.payload.count;
   } catch (error) {
