@@ -44,7 +44,14 @@ export default function Index({ visitorCount }) {
         </div>
       </div>
 
-      <div style={{ position: "absolute", left: 0, color: "white", fontSize: "10px" }}>
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          color: "white",
+          fontSize: "10px",
+        }}
+      >
         <p>visitor count from april 26, 2023 : {visitorCount}</p>
       </div>
     </>
@@ -81,10 +88,7 @@ export async function getServerSideProps(context) {
     }
 
     try {
-      await axios.post(
-        `${backendPath}/visitors/${data.githubUsername}`,
-        visitor
-      );
+      axios.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor);
     } catch (error) {
       console.log(error.message);
     }
@@ -92,7 +96,12 @@ export async function getServerSideProps(context) {
 
   try {
     const getVisitorCount = await axios.get(
-      `${backendPath}/visitors/${data.githubUsername}`
+      `${backendPath}/visitors/${data.githubUsername}/count`,
+      {
+        // headers: {
+        //   Origin: "http://127.0.0.1:3000", // ganti dengan URL domain atau alamat IP dari frontend Anda
+        // },
+      }
     );
     visitorCount = getVisitorCount.data.payload.count;
   } catch (error) {
