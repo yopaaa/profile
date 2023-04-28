@@ -11,7 +11,7 @@ const Home = () => {
   const [moreBtnText, setmoreBtnText] = useState("View More");
   const [addresss, setaddresss] = useState(data.address);
 
-  async function translateText(lang) {
+  async function translateText(lang = "en-US") {
     try {
       const des = await translate(description, lang);
       const moreBtnTextTranslate = await translate(moreBtnText, lang);
@@ -27,17 +27,7 @@ const Home = () => {
 
   useEffect(() => {
     const getQueryLang = router.query.lang;
-          translateText(getQueryLang);
-    
-    // const refrashLang = async () => {
-    //   const getQueryLang = router.query.lang;
-    //   setTimeout(() => {
-    //     if (getQueryLang) {
-    //       translateText(getQueryLang);
-    //     }
-    //   }, 100);
-    // };
-    // refrashLang();
+    translateText(getQueryLang);
   }, []);
   return (
     <>

@@ -4,21 +4,9 @@ import data from "../data/data";
 import parser from "ua-parser-js";
 import axios from "axios";
 import { hasCookie, setCookie } from "cookies-next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
-export default function Index({ visitorCount, languages }) {
+export default function Index({ visitorCount }) {
   const profile = "/images/profile.webp";
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!router.query.lang) {
-      const extractLang = languages.split(",")[0];
-      router.push(`?lang=${extractLang}`, `?lang=${extractLang}`, {
-        // shallow: true,
-      });
-    }
-  }, []);
 
   return (
     <>
@@ -92,6 +80,20 @@ export async function getServerSideProps(context) {
     visitor.visitor = ipAddress;
   }
 
+  const lang =
+    visitor.visitor && visitor.visitor.languages
+      ? visitor.visitor.languages
+      : "en";
+
+  if (!context.query.lang) {
+    return {
+      redirect: {
+        destination: "/?lang=" + lang,
+        permanent: false,
+      },
+    };
+  }
+
   if (isNewVisitor) {
     setCookie("isVisitor", "true", {
       httpOnly: true,
@@ -119,16 +121,11 @@ export async function getServerSideProps(context) {
     console.log(error.message);
   }
 
-  const lang =
-    visitor.visitor && visitor.visitor.languages
-      ? visitor.visitor.languages
-      : "en";
-  console.log(`visitor ${ipAddress}`);
-  console.log(`visitor count : ${visitorCount}`);
+  console.log(`Client ${ipAddress}, visitor count : ${visitorCount}`);
+
   return {
     props: {
       visitorCount,
-      languages: lang,
     },
   };
 }
