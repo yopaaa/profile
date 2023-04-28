@@ -83,6 +83,15 @@ export async function getServerSideProps(context) {
     context.req.connection.remoteAddress;
   let visitorCount;
 
+  // get more info from ip address with ipapi api
+  try {
+    const extractIp = await axios.get(`https://ipapi.co/${ipAddress}/json/`);
+    visitor.visitor = extractIp.data;
+  } catch (error) {
+    console.log(error.message);
+    visitor.visitor = ipAddress;
+  }
+  
   if (isNewVisitor) {
     setCookie("isVisitor", "true", {
       httpOnly: true,
@@ -90,15 +99,6 @@ export async function getServerSideProps(context) {
       ...reqRes,
     });
     console.log("new visitor found : " + ipAddress);
-
-    // get more info from ip address with ipapi api
-    try {
-      const extractIp = await axios.get(`https://ipapi.co/${ipAddress}/json/`);
-      visitor.visitor = extractIp.data;
-    } catch (error) {
-      console.log(error.message);
-      visitor.visitor = ipAddress;
-    }
 
     // send new visitor data to backend
     try {
@@ -119,7 +119,10 @@ export async function getServerSideProps(context) {
     console.log(error.message);
   }
 
-  const lang = visitor.visitor && visitor.visitor.languages ? visitor.visitor.languages : "en";
+  const lang =
+    visitor.visitor && visitor.visitor.languages
+      ? visitor.visitor.languages
+      : "en";
   console.log(`visitor ${ipAddress}`);
   console.log(`visitor count : ${visitorCount}`);
   return {

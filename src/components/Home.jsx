@@ -27,7 +27,7 @@ const Home = () => {
 
   useEffect(() => {
     const getQueryLang = router.query.lang
-    if (getQueryLang) {
+    if (getQueryLang && getQueryLang != "en") {
       translateText(getQueryLang);
     }
   }, []);
