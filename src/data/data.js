@@ -1,103 +1,103 @@
 const data = {
-  name: "Yopa pitra ramadhani",
-  des: "``I am a student of computer network engineering who possesses skills in web programming, IoT, and cloud computing. I am very enthusiastic and always eager to learn new things in the field of information technology. I hope to utilize my skills to contribute to the world of technology and achieve success in the future.``",
-  address: "Bangka-Belitung Islands, Indonesia",
-  work: "Fullstack developer",
-  email: "yopapitrar@gmail.com",
-  githubUsername: "yopaaa",
+  name: 'Yopa pitra ramadhani',
+  des: '``I am a student of computer network engineering who possesses skills in web programming, IoT, and cloud computing. I am very enthusiastic and always eager to learn new things in the field of information technology. I hope to utilize my skills to contribute to the world of technology and achieve success in the future.``',
+  address: 'Bangka-Belitung Islands, Indonesia',
+  work: 'Fullstack developer',
+  email: 'yopapitrar@gmail.com',
+  githubUsername: 'yopaaa',
   link: [
     {
-      name: "github",
-      link: "https://github.com/yopaaa",
-      img: "/images/icon/github.png",
+      name: 'github',
+      link: 'https://github.com/yopaaa',
+      img: '/images/icon/github.png'
     },
     {
-      name: "linkedin",
-      link: "https://www.linkedin.com/in/yopaaa/",
-      img: "/images/icon/linkedin.png",
+      name: 'linkedin',
+      link: 'https://www.linkedin.com/in/yopaaa/',
+      img: '/images/icon/linkedin.png'
     },
     {
-      name: "Email me",
-      link: "mailto:yopapitrar@gmail.com",
-      img: "/images/icon/email.png",
+      name: 'Email me',
+      link: 'mailto:yopapitrar@gmail.com',
+      img: '/images/icon/email.png'
     },
     {
-      name: "Instagram",
-      link: "https://instagram.com/yopapr",
-      img: "/images/icon/instagram.png",
+      name: 'Instagram',
+      link: 'https://instagram.com/yopapr',
+      img: '/images/icon/instagram.png'
     },
     {
-      name: "youtube",
-      link: "https://youtube.com",
-      img: "/images/icon/youtube.png",
+      name: 'youtube',
+      link: 'https://youtube.com',
+      img: '/images/icon/youtube.png'
     },
     {
-      name: "twitter",
-      link: "https://twitter.com",
-      img: "/images/icon/all.png",
+      name: 'twitter',
+      link: 'https://twitter.com',
+      img: '/images/icon/all.png'
     },
     {
-      name: "fecebook",
-      link: "https://fecebook.com",
-      img: "/images/icon/all.png",
-    },
+      name: 'fecebook',
+      link: 'https://fecebook.com',
+      img: '/images/icon/all.png'
+    }
   ],
   Certificate: [
     {
-      name: "LKS Nasional 2022",
-      competition: "Cloud computing (AWS)",
-      des: "Creating and deploying scalable and efficient cloud-based applications, successfully achieving a medal of excellence.",
-      img: "/images/LKSN.png",
-      date: "October 29, 2022",
-      link: "/Document/sertifikat-lks-nasional-yopa-Excellence.pdf",
+      name: 'LKS Nasional 2022',
+      competition: 'Cloud computing (AWS)',
+      des: 'Creating and deploying scalable and efficient cloud-based applications, successfully achieving a medal of excellence.',
+      img: '/images/LKSN.png',
+      date: 'October 29, 2022',
+      link: '/Document/sertifikat-lks-nasional-yopa-Excellence.pdf'
     },
     {
-      name: "Dicoding",
-      competition: "Back-End for Beginners",
-      des: "Learning to create a backend application using Node.js technology and Hapi as the framework.",
-      img: "/images/dicoding.png",
-      date: "November 17, 2022",
-      link: "https://www.dicoding.com/certificates/1OP850G81PQK",
+      name: 'Dicoding',
+      competition: 'Back-End for Beginners',
+      des: 'Learning to create a backend application using Node.js technology and Hapi as the framework.',
+      img: '/images/dicoding.png',
+      date: 'November 17, 2022',
+      link: 'https://www.dicoding.com/certificates/1OP850G81PQK'
     },
     {
-      name: "LKS Province 2022",
-      competition: "Cloud computing (AWS)",
-      des: "Successfully obtained first place in the Provincial Science Competition, thus having the opportunity to represent Bangka Belitung Islands at the national level",
-      img: "/images/scholl.png",
-      date: "27 August 22",
-      link: "/Document/Sertifikat-Juara-LKS-SMK-2022.pdf",
+      name: 'LKS Province 2022',
+      competition: 'Cloud computing (AWS)',
+      des: 'Successfully obtained first place in the Provincial Science Competition, thus having the opportunity to represent Bangka Belitung Islands at the national level',
+      img: '/images/scholl.png',
+      date: '27 August 22',
+      link: '/Document/Sertifikat-Juara-LKS-SMK-2022.pdf'
     },
     {
-      name: "Dicoding",
-      competition: "Basic JavaScript Programming",
-      des: "certificate of graduation from dicoding indonesia, i got it in june 2022",
-      img: "/images/dicoding.png",
-      date: "June 23, 2022",
-      link: "https://www.dicoding.com/certificates/81P2GVOVOPOY",
-    },
+      name: 'Dicoding',
+      competition: 'Basic JavaScript Programming',
+      des: 'certificate of graduation from dicoding indonesia, i got it in june 2022',
+      img: '/images/dicoding.png',
+      date: 'June 23, 2022',
+      link: 'https://www.dicoding.com/certificates/81P2GVOVOPOY'
+    }
   ],
   skils: [
-    "c++",
-    "Arduino",
-    "Node js",
-    "Java Script",
-    "HTML",
-    "Css",
-    "React js",
-    "Linux server",
-    "Linux desktop",
-    "Windows",
-    "Redis",
-    "Networking",
-    "Docker",
-    "AWS",
-    "Mongo DB",
-    "Mysql",
-    "Git",
-    "Vs Code",
-    "C++",
-    "React native",
-    "Nextjs",
+    'c++',
+    'Arduino',
+    'Node js',
+    'Java Script',
+    'HTML',
+    'Css',
+    'React js',
+    'Linux server',
+    'Linux desktop',
+    'Windows',
+    'Redis',
+    'Networking',
+    'Docker',
+    'AWS',
+    'Mongo DB',
+    'Mysql',
+    'Git',
+    'Vs Code',
+    'C++',
+    'React native',
+    'Nextjs'
   ],
   experience: [
     // {
@@ -110,6 +110,6 @@ const data = {
     // },
   ],
   blog: []
-};
+}
 
-export default data;
+export default data
