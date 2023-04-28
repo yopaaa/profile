@@ -26,15 +26,18 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const refrashLang = async () => {
-      const getQueryLang = router.query.lang;
-      setTimeout(() => {
-        if (getQueryLang && getQueryLang != "en") {
+    const getQueryLang = router.query.lang;
           translateText(getQueryLang);
-        }
-      }, 100);
-    };
-    refrashLang();
+    
+    // const refrashLang = async () => {
+    //   const getQueryLang = router.query.lang;
+    //   setTimeout(() => {
+    //     if (getQueryLang) {
+    //       translateText(getQueryLang);
+    //     }
+    //   }, 100);
+    // };
+    // refrashLang();
   }, []);
   return (
     <>
