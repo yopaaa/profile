@@ -1,17 +1,17 @@
-import Head from "next/head";
-import Home from "../components/Home";
-import data from "../data/data";
-import parser from "ua-parser-js";
-import axios from "axios";
-import { hasCookie, setCookie } from "cookies-next";
+import Head from 'next/head'
+import Home from '../components/Home'
+import data from '../data/data'
+import parser from 'ua-parser-js'
+import axios from 'axios'
+import { hasCookie, setCookie } from 'cookies-next'
 
 export default function Index({ visitorCount }) {
-  const profile = "/images/profile.webp";
+  const profile = '/images/profile.webp'
 
   return (
     <>
       <Head>
-        <title>{"Profile"}</title>
+        <title>{'Profile'}</title>
         <meta
           name="description"
           content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}, ${data.des}`}
@@ -36,96 +36,85 @@ export default function Index({ visitorCount }) {
           </div>
         </div>
         <div className="w-full lg:w-2/5">
-          <img
-            alt={data.name}
-            src={profile}
-            className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
-          />
+          <img alt={data.name} src={profile} className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block" />
         </div>
       </div>
 
       <div
         style={{
-          position: "absolute",
+          position: 'absolute',
           left: 0,
-          color: "white",
-          fontSize: "10px",
+          color: 'white',
+          fontSize: '13px'
         }}
       >
         <p>visitor count from april 26, 2023 : {visitorCount}</p>
       </div>
     </>
-  );
+  )
 }
 
 export async function getServerSideProps(context) {
   const reqRes = {
     req: context.req,
-    res: context.res,
-  };
-  const visitor = parser(context.req.headers["user-agent"]);
-  const isNewVisitor = !hasCookie("isVisitor", { ...reqRes });
-  const backendPath = process.env.BACKEND_HOST;
-  const ipAddress =
-    context.req.headers["x-forwarded-for"] ||
-    context.req.connection.remoteAddress;
-  let visitorCount;
+    res: context.res
+  }
+  const visitor = parser(context.req.headers['user-agent'])
+  const isNewVisitor = !hasCookie('isVisitor', { ...reqRes })
+  const backendPath = process.env.BACKEND_HOST
+  const ipAddress = context.req.headers['x-forwarded-for'] || context.req.connection.remoteAddress
+  let visitorCount
 
   // get more info from ip address with ipapi api
   try {
-    const extractIp = await axios.get(`https://ipapi.co/${ipAddress}/json/`);
-    visitor.visitor = extractIp.data;
+    const extractIp = await axios.get(`https://ipapi.co/${ipAddress}/json/`)
+    visitor.visitor = extractIp.data
   } catch (error) {
-    console.log(error.message);
-    visitor.visitor = ipAddress;
+    console.log(error.message)
+    visitor.visitor = ipAddress
   }
 
-  const lang =
-    visitor.visitor && visitor.visitor.languages
-      ? visitor.visitor.languages
-      : "en";
+  const lang = visitor.visitor && visitor.visitor.languages ? visitor.visitor.languages : 'en'
 
   if (!context.query.lang) {
     return {
       redirect: {
-        destination: "/?lang=" + lang,
-        permanent: false,
-      },
-    };
+        destination: '/?lang=' + lang.split(',')[0],
+        permanent: false
+      }
+    }
   }
 
   if (isNewVisitor) {
-    setCookie("isVisitor", "true", {
+    setCookie('isVisitor', 'true', {
       httpOnly: true,
       maxAge: 60 * 60,
-      ...reqRes,
-    });
-    console.log("new visitor found : " + ipAddress);
+      ...reqRes
+    })
+    console.log('new visitor found : ' + ipAddress)
 
     // send new visitor data to backend
     try {
-      axios.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor);
+      axios.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor)
     } catch (error) {
-      console.log(error.message);
+      console.log(error.message)
     }
   }
 
   // get visitor count from backend
   try {
-    const getVisitorCount = await axios.get(
-      `${backendPath}/visitors/${data.githubUsername}/count`
-    );
-    visitorCount = getVisitorCount.data.payload.count;
+    const getVisitorCount = await axios.get(`${backendPath}/visitors/${data.githubUsername}/count`)
+    visitorCount = getVisitorCount.data.payload.count
   } catch (error) {
-    visitorCount = "Failed to get data";
-    console.log(error.message);
+    visitorCount = 'Failed to get data'
+    console.log(error.message)
   }
 
-  console.log(`Client ${ipAddress}, visitor count : ${visitorCount}`);
+  console.log(`Client ${ipAddress}, visitor count : ${visitorCount}`)
 
   return {
     props: {
-      visitorCount,
-    },
-  };
+      visitorCount
+    }
+  }
 }

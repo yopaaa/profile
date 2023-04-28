@@ -1,13 +1,13 @@
-import Head from "next/head";
-import data from "../data/data";
+import Head from 'next/head'
+import data from '../data/data'
 
-export default function Index({}) {
-const profile = "/images/profile.webp";
+export default function Index() {
+  const profile = '/images/profile.webp'
 
   return (
     <>
       <Head>
-        <title>{"Profile"}</title>
+        <title>{'Profile'}</title>
         <meta
           name="description"
           content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}, ${data.des}`}
@@ -28,20 +28,12 @@ const profile = "/images/profile.webp";
               style={{ backgroundImage: `url(${profile})` }}
               title="profile"
             />
-
-          
-
           </div>
         </div>
         <div className="w-full lg:w-2/5">
-          <img
-            alt={data.name}
-            src={profile}
-            className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
-          />
+          <img alt={data.name} src={profile} className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block" />
         </div>
       </div>
     </>
-  );
+  )
 }
-

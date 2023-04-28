@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import data from "../../data/data.js";
+import { useState, useEffect } from 'react'
+import data from '../../data/data.js'
 
 const Skils = () => {
-  const [list, setList] = useState();
+  const [list, setList] = useState()
 
   useEffect(() => {
     const datas = data.skils.reverse()
@@ -14,13 +14,11 @@ const Skils = () => {
               {val}
             </span>
           </div>
-        );
+        )
       })
-    );
-  }, []);
-  return <>{list}</>;
+    )
+  }, [])
+  return <>{list}</>
 }
 
 export default Skils
-
-

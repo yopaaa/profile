@@ -1,16 +1,14 @@
-import Head from "next/head";
-import Home from "../components/Home";
-import More from "../components/More";
-import data from "../data/data";
-import parser from "ua-parser-js";
+import Head from 'next/head'
+import More from '../components/More'
+import data from '../data/data'
 
-export default function Index({}) {
-  const profile = "/images/profile.webp";
+export default function Index() {
+  const profile = '/images/profile.webp'
 
   return (
     <>
       <Head>
-        <title>{"Profile"}</title>
+        <title>{'Profile'}</title>
         <meta
           name="description"
           content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}, ${data.des}`}
@@ -36,26 +34,15 @@ export default function Index({}) {
           </div>
         </div>
         <div className="w-full lg:w-2/5">
-          <img
-            alt={data.name}
-            src={profile}
-            className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block"
-          />
+          <img alt={data.name} src={profile} className="rounded-none lg:rounded-lg shadow-2xl hidden lg:block" />
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export async function getServerSideProps(context) {
-  const visitor = parser(context.req.headers["user-agent"]);
-  const ipAddress =
-    context.req.headers["x-forwarded-for"] ||
-    context.req.connection.remoteAddress;
-  visitor.visitor = {};
-  visitor.visitor = ipAddress;
-  console.log(visitor);
   return {
-    props: {},
-  };
+    props: {}
+  }
 }
