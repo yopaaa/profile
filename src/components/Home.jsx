@@ -16,7 +16,7 @@ const Home = () => {
       const des = await translate(description, lang);
       const moreBtnTextTranslate = await translate(moreBtnText, lang);
       const addr = await translate(addresss, lang);
-      
+
       setaddresss(addr);
       setdescription(des);
       setmoreBtnText(moreBtnTextTranslate);
@@ -26,10 +26,15 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const getQueryLang = router.query.lang
-    if (getQueryLang && getQueryLang != "en") {
-      translateText(getQueryLang);
-    }
+    const refrashLang = async () => {
+      const getQueryLang = router.query.lang;
+      setTimeout(() => {
+        if (getQueryLang && getQueryLang != "en") {
+          translateText(getQueryLang);
+        }
+      }, 100);
+    };
+    refrashLang();
   }, []);
   return (
     <>

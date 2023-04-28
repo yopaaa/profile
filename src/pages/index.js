@@ -12,17 +12,12 @@ export default function Index({ visitorCount, languages }) {
   const router = useRouter();
 
   useEffect(() => {
-    const refrashLang = async () => {
-      setTimeout(() => {
-        if (!router.query.lang && languages) {
-          const extractLang = languages.split(",")[0];
-          router.push(`?lang=${extractLang}`, `?lang=${extractLang}`, {
-            shallow: true,
-          });
-        }
-      },50);
-    };
-    refrashLang()
+    if (!router.query.lang && languages) {
+      const extractLang = languages.split(",")[0];
+      router.push(`?lang=${extractLang}`, `?lang=${extractLang}`, {
+        shallow: true,
+      });
+    }
   }, []);
 
   return (
