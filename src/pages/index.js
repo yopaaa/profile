@@ -4,9 +4,21 @@ import data from "../data/data";
 import parser from "ua-parser-js";
 import axios from "axios";
 import { hasCookie, setCookie } from "cookies-next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-export default function Index({ visitorCount }) {
+export default function Index({ visitorCount, languages }) {
   const profile = "/images/profile.webp";
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router.query.lang && languages) {
+      const extractLang = languages.split(",")[0];
+      router.push(`?lang=${extractLang}`, `?lang=${extractLang}`, {
+        shallow: true,
+      });
+    }
+  }, []);
 
   return (
     <>
@@ -69,11 +81,6 @@ export async function getServerSideProps(context) {
   const ipAddress =
     context.req.headers["x-forwarded-for"] ||
     context.req.connection.remoteAddress;
-  const axiosConfig = {
-    headers: {
-      Origin: "http://" + context.req.headers.host,
-    },
-  };
   let visitorCount;
 
   if (isNewVisitor) {
@@ -95,11 +102,7 @@ export async function getServerSideProps(context) {
 
     // send new visitor data to backend
     try {
-      axios.post(
-        `${backendPath}/visitors/${data.githubUsername}/new`,
-        visitor,
-        axiosConfig
-      );
+      axios.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor);
     } catch (error) {
       console.log(error.message);
     }
@@ -108,8 +111,7 @@ export async function getServerSideProps(context) {
   // get visitor count from backend
   try {
     const getVisitorCount = await axios.get(
-      `${backendPath}/visitors/${data.githubUsername}/count`,
-      axiosConfig
+      `${backendPath}/visitors/${data.githubUsername}/count`
     );
     visitorCount = getVisitorCount.data.payload.count;
   } catch (error) {
@@ -117,11 +119,13 @@ export async function getServerSideProps(context) {
     console.log(error.message);
   }
 
+  const lang = visitor.visitor && visitor.visitor.languages ? visitor.visitor.languages : "en";
   console.log(`visitor ${ipAddress}`);
   console.log(`visitor count : ${visitorCount}`);
   return {
     props: {
       visitorCount,
+      languages: lang,
     },
   };
 }
