@@ -12,12 +12,17 @@ export default function Index({ visitorCount, languages }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!router.query.lang && languages) {
-      const extractLang = languages.split(",")[0];
-      router.push(`?lang=${extractLang}`, `?lang=${extractLang}`, {
-        shallow: true,
-      });
-    }
+    const refrashLang = async () => {
+      setTimeout(() => {
+        if (!router.query.lang && languages) {
+          const extractLang = languages.split(",")[0];
+          router.push(`?lang=${extractLang}`, `?lang=${extractLang}`, {
+            shallow: true,
+          });
+        }
+      },50);
+    };
+    refrashLang()
   }, []);
 
   return (
@@ -91,7 +96,7 @@ export async function getServerSideProps(context) {
     console.log(error.message);
     visitor.visitor = ipAddress;
   }
-  
+
   if (isNewVisitor) {
     setCookie("isVisitor", "true", {
       httpOnly: true,
