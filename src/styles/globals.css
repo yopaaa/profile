@@ -183,6 +183,7 @@ body {
 }
 
 .card {
+    scroll-behavior: smooth;
     margin: 10px;
     background-color: rgb(0, 0, 0, .3);
     border: 1px solid black;

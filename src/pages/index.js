@@ -48,7 +48,7 @@ export default function Index({ visitorCount }) {
           fontSize: '13px'
         }}
       >
-        <p>visitor count from april 26, 2023 : {visitorCount}</p>
+        <p>visitor count from april 29, 2023 : {visitorCount}</p>
       </div>
     </>
   )

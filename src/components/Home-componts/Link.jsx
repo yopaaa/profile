@@ -6,7 +6,7 @@ const Link = () => {
 
   useEffect(() => {
     setList(
-      data.link.slice(0, 5).map((val) => {
+      data.more.link.slice(0, 5).map((val) => {
         return (
           <a className="link" href={val.link} key={val.name} target="_blank" rel="noreferrer">
             <span

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import data from '../../data/data.js'
+// import data from '../../data/data.js'
 
-const Link = () => {
+const List = ({ data }) => {
   const [list, setList] = useState()
+  const datas = [...data].reverse()
 
   useEffect(() => {
-    const datas = data.link.reverse()
     setList(
       datas.map((val) => {
         return (
@@ -19,8 +19,8 @@ const Link = () => {
         )
       })
     )
-  }, [])
+  }, [data])
   return <div>{list}</div>
 }
 
-export default Link
+export default List

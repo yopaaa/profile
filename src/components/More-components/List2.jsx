@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react'
-import data from '../../data/data.js'
 
-const Certificate = () => {
+const List = ({ data, altText = '' }) => {
   const [content, setcontent] = useState()
+  const datas = [...data].reverse()
 
-  function getcontent() {
+  useEffect(() => {
     setcontent(
-      data.blog.map((value) => {
+      datas.map((value) => {
         return (
-          <div className="card" key={value.name}>
+          <div className="card" key={value.name + value.title}>
             <div className="card-header">
-              <img src={value.img} alt="rover" />
+              <img src={value.img} alt={value.title} />
             </div>
 
             <div className="card-body">
               <h4 title="view certificates" style={{ fontWeight: 'bold' }}>
-                {value.name} - {value.competition}
+                {value.name} - {value.title}
               </h4>
 
               <p style={{ fontSize: '14px' }}>{value.des}</p>
@@ -30,12 +30,9 @@ const Certificate = () => {
         )
       })
     )
-  }
-
-  useEffect(() => {
-    getcontent()
-  }, [])
+    if (datas.length < 1) setcontent(<div style={{ fontStyle: 'italic' }}>{altText}</div>)
+  }, [data])
   return <div className="container-certificate">{content}</div>
 }
 
-export default Certificate
+export default List
