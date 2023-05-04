@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Home from '../components/Home'
-import data from '../data/data'
+import data from '../js/data'
 import parser from 'ua-parser-js'
 import axios from 'axios'
 import { hasCookie, setCookie } from 'cookies-next'
@@ -55,6 +55,7 @@ export default function Index({ visitorCount }) {
 }
 
 export async function getServerSideProps(context) {
+  const API = axios.create({ headers: { 'x-api-key': process.env.API_KEY } })
   const reqRes = {
     req: context.req,
     res: context.res
@@ -95,7 +96,7 @@ export async function getServerSideProps(context) {
 
     // send new visitor data to backend
     try {
-      axios.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor)
+      API.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor)
     } catch (error) {
       console.log(error.message)
     }
@@ -103,7 +104,7 @@ export async function getServerSideProps(context) {
 
   // get visitor count from backend
   try {
-    const getVisitorCount = await axios.get(`${backendPath}/visitors/${data.githubUsername}/count`)
+    const getVisitorCount = await API.get(`${backendPath}/visitors/${data.githubUsername}/count`, {})
     visitorCount = getVisitorCount.data.payload.count
   } catch (error) {
     visitorCount = 'Failed to get data'

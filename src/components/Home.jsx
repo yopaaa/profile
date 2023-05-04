@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Link from './Home-componts/Link'
-import data from '../data/data.js'
+import data from '../js/data.js'
 import { useRouter } from 'next/router'
 import translate from 'translate'
 
