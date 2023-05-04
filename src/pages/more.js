@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import More from '../components/More'
-import data from '../data/data'
+import data from '../js/data'
 
 export default function Index() {
   const profile = '/images/profile.webp'
