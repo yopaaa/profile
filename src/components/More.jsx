@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Repository from './More-components/Repository'
 import MailMe from './More-components/MailMe'
 import { useRouter } from 'next/router'
-import data from '../data/data'
+import data from '../js/data'
 import List1 from './More-components/List1'
 import List2 from './More-components/List2'
 
