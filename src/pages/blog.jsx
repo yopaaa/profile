@@ -59,6 +59,7 @@ export default function Index() {
           quam, debitis maiores temporibus quae laboriosam qui deserunt accusantium nulla ullam quaerat, sit animi facilis neque
           unde sapiente!
         </p>
+<<<<<<< HEAD
 
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus libero earum dolorem et repudiandae, ipsa pariatur
@@ -66,6 +67,8 @@ export default function Index() {
           quam, debitis maiores temporibus quae laboriosam qui deserunt accusantium nulla ullam quaerat, sit animi facilis neque
           unde sapiente!
         </p>
+=======
+>>>>>>> parent of b0ff239 (Revert "update data.js")
       </div>
     </>
   )

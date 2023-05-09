@@ -6,7 +6,7 @@ const Link = () => {
 
   useEffect(() => {
     setList(
-      data.more.link.slice(0, 5).map((val) => {
+      data.link.slice(0, 5).map((val) => {
         return (
           <a className="link" href={val.link} key={val.name} target="_blank" rel="noreferrer">
             <span
@@ -14,7 +14,6 @@ const Link = () => {
               role="img"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* <path d={val.svg} /> */}
               <img width="25px" height="25px" src={val.img} alt="logo" title={val.name} />
             </span>
           </a>
