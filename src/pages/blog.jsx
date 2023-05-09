@@ -59,6 +59,13 @@ export default function Index() {
           quam, debitis maiores temporibus quae laboriosam qui deserunt accusantium nulla ullam quaerat, sit animi facilis neque
           unde sapiente!
         </p>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus libero earum dolorem et repudiandae, ipsa pariatur
+          quasi aspernatur dolores repellat soluta similique non? Accusantium, sit reiciendis aut sunt corporis dolor? Et quas
+          quam, debitis maiores temporibus quae laboriosam qui deserunt accusantium nulla ullam quaerat, sit animi facilis neque
+          unde sapiente!
+        </p>
       </div>
     </>
   )
