@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import data from '../../data/data.js'
+import style from '../../styles/List1.module.css'
 
 const List = ({ data }) => {
   const [list, setList] = useState()
@@ -9,7 +9,7 @@ const List = ({ data }) => {
     setList(
       datas.map((val) => {
         return (
-          <div className="more-Link-container" key={val.name}>
+          <div className={style.LinkContainer} key={val.name}>
             <span className="name" title={val.name}>
               <a href={val.link} target="_blank" rel="noreferrer">
                 {val.name}

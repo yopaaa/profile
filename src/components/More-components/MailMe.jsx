@@ -1,19 +1,20 @@
 import { useState } from 'react'
 import data from '../../js/data.js'
+import style from '../../styles/MailMe.module.css'
 
 const MailMe = () => {
   const [mailBody, setMailBody] = useState('')
   const [name, setName] = useState('Anonymous')
 
   return (
-    <div className="mail-me-container">
-      <div className="mail-me-name">
+    <div className={style.mailMeContainer}>
+      <div className={style.mailMeName}>
         <p>Name</p>
         <input type="text" onChange={(ev) => setName(ev.target.value)} placeholder="Name" />
       </div>
       <br />
 
-      <div className="mail-me-text-area">
+      <div className={style.mailMeTextArea}>
         <textarea name="" id="" onChange={(ev) => setMailBody(ev.target.value)}></textarea>
       </div>
 

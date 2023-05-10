@@ -1,0 +1,35 @@
+
+.backBtn {
+    cursor: pointer;
+    background: rgb(4, 120, 87, .8);
+    padding: 3px;
+    border-radius: 5px;
+    color: white;
+}
+
+.content {
+    border: 1px dotted black;
+    border-radius: 10px;
+    margin-top: 5px;
+    height: 360px;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.curretPage {
+    color: blue;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.backBtn:hover {
+    background-color: rgba(6, 78, 59, 1.1);
+}
+
+.ContentNavigation {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 5px;
+}

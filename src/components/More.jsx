@@ -1,25 +1,26 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import data from '../js/data'
+import style from '../styles/More.module.css'
 
 const Home = () => {
   const contentList = data.morePage
-  const [repoContentNavigation, setrepoContentNavigation] = useState()
+  const [ContentNavigation, setContentNavigation] = useState()
   const [content, setcontent] = useState()
   const router = useRouter()
   const page = router.query.page || 'Repository'
   const isExistPage = !!contentList.find((value) => value.name === page)
 
   function getNav(curretPage = 'Repository') {
-    setrepoContentNavigation(
-      <div className="repo-content-navigation">
+    setContentNavigation(
+      <div className={style.ContentNavigation}>
         <p
           onClick={() => {
             router.push('/', '/', {
-              shallow: true
+              // shallow: true
             })
           }}
-          className="backBtn"
+          className={style.backBtn}
         >
           Back
         </p>
@@ -33,7 +34,7 @@ const Home = () => {
                 getContent(name)
                 router.push(`?page=${name}`)
               }}
-              className={curretPage === name ? ' curretPage' : ''}
+              className={curretPage === name ? style.curretPage : ''}
               style={{ cursor: 'pointer' }}
               key={name}
             >
@@ -63,8 +64,8 @@ const Home = () => {
 
   return (
     <>
-      {repoContentNavigation}
-      <div className="content">{content}</div>
+      {ContentNavigation}
+      <div className={style.content}>{content}</div>
     </>
   )
 }

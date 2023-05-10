@@ -1,0 +1,36 @@
+.repositoryContainer {
+    background-color: rgb(0, 0, 0, .3);
+    /* color: white; */
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: start;
+    /* height: 100px; */
+    height: max-content;
+    margin-bottom: 20px;
+}
+
+.repositoryContainer:hover {
+    background-color: rgb(0, 0, 0, .5);
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.name a:hover {
+    color: rgb(17, 0, 255);
+}
+
+.repositoryTime {
+    display: flex;
+    font-size: 11px;
+    justify-content: space-around;
+}
+
+.repositoryTime p {
+    padding-top: 10px;
+    font-size: 10px;
+}

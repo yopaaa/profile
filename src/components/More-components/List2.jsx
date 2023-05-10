@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import style from '../../styles/List2.module.css'
 
 const List = ({ data, altText = '' }) => {
   const [content, setcontent] = useState()
@@ -8,13 +9,13 @@ const List = ({ data, altText = '' }) => {
     setcontent(
       datas.map((value) => {
         return (
-          <div className="card" key={value.name + value.title}>
-            <div className="card-header">
+          <div className={style.card} key={value.name + value.title}>
+            <div className={style.cardHeader}>
               <img src={value.img} alt={value.title} />
             </div>
 
-            <div className="card-body">
-              <h4 title="view certificates" style={{ fontWeight: 'bold' }}>
+            <div className={style.cardBody}>
+              <h4 title={'view ' + value.name} style={{ fontWeight: 'bold' }}>
                 {value.name} - {value.title}
               </h4>
 
@@ -32,7 +33,7 @@ const List = ({ data, altText = '' }) => {
     )
     if (datas.length < 1) setcontent(<div style={{ fontStyle: 'italic' }}>{altText}</div>)
   }, [data])
-  return <div className="container-certificate">{content}</div>
+  return <div className={style.containerCertificate}>{content}</div>
 }
 
 export default List

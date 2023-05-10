@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
+import style from '../../styles/Repository.module.css'
 
 const Repository = () => {
   const [repoList, setRepoList] = useState()
@@ -11,8 +12,8 @@ const Repository = () => {
       datas.data.map((val) => {
         // console.log(val);
         return (
-          <div className="repository-container" key={val.full_name}>
-            <span className="name" title="name">
+          <div className={style.repositoryContainer} key={val.full_name}>
+            <span className={style.name} title="name">
               <a href={val.html_url} target="_blank" rel="noreferrer">
                 {val.full_name}
               </a>
@@ -21,7 +22,7 @@ const Repository = () => {
             <p style={{ fontSize: '14px' }} title="description">
               {val.description}
             </p>
-            <div className="repository-time">
+            <div className={style.repositoryTime}>
               <p title="created at">created at {moment(val.created_at).startOf('second').fromNow()}</p>
 
               <p title="updated at">updated at {moment(val.updated_at).startOf('second').fromNow()}</p>
