@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import data from '../js/data'
+import data from '../../js/data'
 
 export default function Index() {
   // const profile = '/images/profile.webp'
