@@ -4,7 +4,21 @@ import moment from 'moment'
 import style from '../../styles/Repository.module.css'
 
 const Repository = () => {
-  const [repoList, setRepoList] = useState()
+  const [repoList, setRepoList] = useState(
+    <div className={style.repositoryContainer + ' animate-pulse'}>
+      <span
+        className={style.name}
+        style={{ height: 25, backgroundColor: 'gray', borderRadius: 10, width: '50%', margin: 5 }}
+      ></span>
+
+      <p style={{ height: 50, backgroundColor: 'gray', borderRadius: 10, margin: 5 }}></p>
+      <div className={style.repositoryTime}>
+        <p style={{ height: 15, backgroundColor: 'gray', borderRadius: 10, width: '50%', margin: 5 }}></p>
+        <p style={{ height: 15, backgroundColor: 'gray', borderRadius: 10, width: '50%', margin: 5 }}></p>
+        <p style={{ height: 15, backgroundColor: 'gray', borderRadius: 10, width: '50%', margin: 5 }}></p>
+      </div>
+    </div>
+  )
 
   async function getRepo() {
     const datas = await axios.get('https://api.github.com/users/yopaaa/repos?sort=pushed')
@@ -34,6 +48,7 @@ const Repository = () => {
       })
     )
   }
+
   useEffect(() => {
     getRepo()
   }, [])

@@ -15,7 +15,7 @@ const MailMe = () => {
       <br />
 
       <div className={style.mailMeTextArea}>
-        <textarea name="" id="" onChange={(ev) => setMailBody(ev.target.value)}></textarea>
+        <textarea name="" id="" onChange={(ev) => setMailBody(ev.target.value)} style={{ maxHeight: 200 }}></textarea>
       </div>
 
       <br />
