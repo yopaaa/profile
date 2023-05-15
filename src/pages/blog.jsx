@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import data from '../js/data'
+import styles from '../styles/Blog.module.css'
 
 export default function Index() {
   return (
@@ -15,214 +16,33 @@ export default function Index() {
         <link rel="shortcut icon" type="image/jpg" href="/images/linux.ico" />
       </Head>
 
-      <div
-        className=""
-        style={{
-          background: 'white',
-          padding: 200,
-          paddingTop: 50,
-          lineHeight: 1.5,
-          fontSize: '20px'
-        }}
-      >
-        <h4
-          style={{
-            WebkitTextSizeAdjust: '100%',
-            '--primary-nav-height': '73px',
-            '--announcement-bar-height': '0px',
-            '--content-spacing': '64px',
-            '--scroll-padding-top':
-              'calc(var(--top-hat-height) + var(--primary-nav-height) + var(--sub-nav-height) + var(--announcement-bar-height) + var(--content-spacing))',
-            '--sub-nav-height': '60px',
-            '--top-hat-height': '38px',
-            WebkitFontSmoothing: 'antialiased',
-            textRendering: 'optimizeLegibility',
-            boxSizing: 'border-box',
-            fontFamily: '"JetBrains Mono", monospace',
-            fontSize: '16px',
-            fontStyle: 'normal',
-            fontWeight: 'bold',
-            letterSpacing: '1px',
-            lineHeight: '24px',
-            margin: '20px 0px 8px',
-            textTransform: 'capitalize',
-            color: 'rgb(0, 105, 255)'
-          }}
-        >
-          {'// Tutorial //'}
-        </h4>
+      <div className={styles.container}>
+        <h4 className={styles.blogType}>{'// Tutorial //'}</h4>
 
-        <h1
-          style={{
-            WebkitTextSizeAdjust: '100%',
-            '--primary-nav-height': '73px',
-            '--announcement-bar-height': '0px',
-            '--content-spacing': '64px',
-            '--scroll-padding-top':
-              'calc(var(--top-hat-height) + var(--primary-nav-height) + var(--sub-nav-height) + var(--announcement-bar-height) + var(--content-spacing))',
-            '--sub-nav-height': '60px',
-            '--top-hat-height': '38px',
-            WebkitFontSmoothing: 'antialiased',
-            textRendering: 'optimizeLegibility',
-            boxSizing: 'border-box',
-            color: 'rgb(3, 27, 78)',
-            fontFamily: 'Epilogue, sans-serif',
-            fontStyle: 'normal',
-            fontWeight: 'bold',
-            letterSpacing: '-0.5px',
-            lineHeight: '40px',
-            margin: '0px',
-            padding: '0px',
-            wordBreak: 'break-word',
-            fontSize: '32px'
-          }}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, eius?
-        </h1>
+        <h1 className={styles.title}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, eius?</h1>
 
-        <div
-          style={{
-            WebkitTextSizeAdjust: '100%',
-            '--primary-nav-height': '73px',
-            '--announcement-bar-height': '0px',
-            '--content-spacing': '64px',
-            '--scroll-padding-top':
-              'calc(var(--top-hat-height) + var(--primary-nav-height) + var(--sub-nav-height) + var(--announcement-bar-height) + var(--content-spacing))',
-            '--sub-nav-height': '60px',
-            '--top-hat-height': '38px',
-            fontFamily: 'Inter,sans-serif',
-            WebkitFontSmoothing: 'antialiased',
-            textRendering: 'optimizeLegibility',
-            fontSize: '20px',
-            lineHeight: 1.5,
-            boxSizing: 'border-box',
-            WebkitBoxAlign: 'center',
-            alignItems: 'center',
-            display: 'flex',
-            flexWrap: 'wrap'
-          }}
-        >
-          <div
-            style={{
-              WebkitTextSizeAdjust: '100%',
-              '--primary-nav-height': '73px',
-              '--announcement-bar-height': '0px',
-              '--content-spacing': '64px',
-              '--scroll-padding-top':
-                'calc(var(--top-hat-height) + var(--primary-nav-height) + var(--sub-nav-height) + var(--announcement-bar-height) + var(--content-spacing))',
-              '--sub-nav-height': '60px',
-              '--top-hat-height': '38px',
-              fontFamily: 'Inter,sans-serif',
-              WebkitFontSmoothing: 'antialiased',
-              textRendering: 'optimizeLegibility',
-              boxSizing: 'border-box',
-              color: 'rgb(77, 91, 124)',
-              fontSize: '16px',
-              lineHeight: '24px',
-              margin: '8px 0px'
-            }}
-          >
-            Published on May 13, 2016 · Updated on October 27, 2021
-          </div>
-          <ul
-            style={{
-              padding: '10px 0px',
-              width: '100%'
-            }}
-          >
-            <li
-              style={{
-                display: 'flex',
-                padding: '10px 0px',
-                width: '100%',
-                flexWrap: 'wrap',
-                gap: 20
-              }}
-            >
-              <a
-                style={{
-                  WebkitTextSizeAdjust: '100%',
-                  '--primary-nav-height': '73px',
-                  '--announcement-bar-height': '0px',
-                  '--content-spacing': '64px',
-                  '--scroll-padding-top':
-                    'calc(var(--top-hat-height) + var(--primary-nav-height) + var(--sub-nav-height) + var(--announcement-bar-height) + var(--content-spacing))',
-                  '--sub-nav-height': '60px',
-                  '--top-hat-height': '38px',
-                  fontFamily: 'Inter,sans-serif',
-                  WebkitFontSmoothing: 'antialiased',
-                  textRendering: 'optimizeLegibility',
-                  listStyle: 'none',
-                  boxSizing: 'border-box',
-                  background: 'rgb(239, 242, 251)',
-                  borderRadius: '8px',
-                  color: 'rgb(77, 91, 124)',
-                  cursor: 'pointer',
-                  display: 'inline-block',
-                  fontSize: '14px',
-                  fontStyle: 'normal',
-                  fontWeight: 500,
-                  lineHeight: 1.71429,
-                  margin: '4px 8px 4px 0px',
-                  padding: '0px 8px',
-                  textAlign: 'center',
-                  textDecoration: 'none',
-                  transition: 'background 0.15s linear 0s, color 0.15s linear 0s',
-                  marginLeft: '0px'
-                }}
-              >
-                Node.js
-              </a>
-              <a
-                style={{
-                  WebkitTextSizeAdjust: '100%',
-                  '--primary-nav-height': '73px',
-                  '--announcement-bar-height': '0px',
-                  '--content-spacing': '64px',
-                  '--scroll-padding-top':
-                    'calc(var(--top-hat-height) + var(--primary-nav-height) + var(--sub-nav-height) + var(--announcement-bar-height) + var(--content-spacing))',
-                  '--sub-nav-height': '60px',
-                  '--top-hat-height': '38px',
-                  fontFamily: 'Inter,sans-serif',
-                  WebkitFontSmoothing: 'antialiased',
-                  textRendering: 'optimizeLegibility',
-                  listStyle: 'none',
-                  boxSizing: 'border-box',
-                  background: 'rgb(239, 242, 251)',
-                  borderRadius: '8px',
-                  color: 'rgb(77, 91, 124)',
-                  cursor: 'pointer',
-                  display: 'inline-block',
-                  fontSize: '14px',
-                  fontStyle: 'normal',
-                  fontWeight: 500,
-                  lineHeight: 1.71429,
-                  margin: '4px 8px 4px 0px',
-                  padding: '0px 8px',
-                  textAlign: 'center',
-                  textDecoration: 'none',
-                  transition: 'background 0.15s linear 0s, color 0.15s linear 0s',
-                  marginLeft: '0px'
-                }}
-              >
-                Node.js
-              </a>
-            </li>
-          </ul>
+        <div className={styles.infoContainer}>
+          <span className={styles.authorImage}>
+            <img src="/images/profile.webp" width="50" height="50" alt="author"></img>
+          </span>
+          <div>yopaaa</div>
+          <div>.</div>
+          <div>Published on May 13, 2016</div>
+          <div>.</div>
+          <div>Updated on October 27, 2021</div>
         </div>
 
-        <img
-          src="/images/bg.webp"
-          alt="lorem"
-          title="lorem"
-          style={{
-            borderStyle: 'none',
-            borderRadius: '24px',
-            display: 'block',
-            margin: '40px 0px',
-            width: '100%'
-          }}
-        />
+        <hr style={{ borderColor: 'black', marginTop: 20, marginBottom: 20 }} />
+
+        <div className={styles.tagContainer}>
+          <a className={styles.tagStyle}>#Node.js</a>
+          <a className={styles.tagStyle}>#CSS</a>
+          <a className={styles.tagStyle}>#Linux</a>
+        </div>
+
+        <div className={styles.headerImage}>
+          <img src="/images/bg.webp" alt="lorem" title="lorem" />
+        </div>
 
         <div
           style={{

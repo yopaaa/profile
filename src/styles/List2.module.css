@@ -3,11 +3,12 @@
 .containerCertificate {
     display: grid;
     /* width: 1040px; */
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     flex-wrap: wrap;
 }
 
 .card {
+    /* width: 100%; */
     scroll-behavior: smooth;
     margin: 10px;
     background-color: rgb(0, 0, 0, .3);
@@ -16,6 +17,10 @@
     /* border-top-right-radius: 10px; */
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+.cardHeader {
+    width: 100%;
 }
 
 .cardHeader img {

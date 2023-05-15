@@ -1,0 +1,82 @@
+.container {
+    background: white;
+    padding: 200px;
+    padding-top: 50px;
+    line-height: 1.5;
+    font-size: 20px;
+}
+
+.blogType {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: capitalize;
+    /* // color: rgb(0, 105, 255) */
+    color: blue;
+    padding: 10;
+}
+
+.authorImage {
+    display: inline;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.title {
+    letter-spacing: 0.5px;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.infoContainer {
+    font-size: 16px;
+    margin: 8px 0px;
+    display: flex;
+    gap: 20px;
+    font-weight: lighter;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.headerImage {
+    border-style: none;
+    border-radius: 24px;
+    display: block;
+    margin: 40px 0px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tagContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.tagStyle {
+    background: rgb(239, 242, 251);
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.71429;
+    margin: 4px;
+    padding: 8px;
+}
+
+@media screen and (max-width: 850px) {
+    .container {
+        padding: 100px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        padding: 10px;
+    }
+}

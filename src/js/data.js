@@ -35,269 +35,249 @@ const data = {
       name: 'twitter',
       link: 'https://twitter.com',
       img: '/images/icon/twitter.png'
+    },
+    {
+      name: 'youtube',
+      link: 'https://youtube.com',
+      img: '/images/icon/youtube.png'
+    },
+    {
+      name: 'fecebook',
+      link: 'https://fecebook.com',
+      img: '/images/icon/all.png'
     }
   ],
-  morePage: [
+  Certificate: [
     {
-      name: 'Repository',
-      value: function () {
-        return <Repository />
-      }
+      name: 'Dicoding',
+      title: 'Basic JavaScript Programming',
+      des: 'certificate of graduation from dicoding indonesia, i got it in june 2022',
+      img: '/images/dicoding.png',
+      date: 'June 23, 2022',
+      link: 'https://www.dicoding.com/certificates/81P2GVOVOPOY'
     },
     {
-      name: 'Link',
-      link: [
-        {
-          name: 'github',
-          link: 'https://github.com/yopaaa',
-          img: '/images/icon/github.png'
-        },
-        {
-          name: 'linkedin',
-          link: 'https://www.linkedin.com/in/yopaaa/',
-          img: '/images/icon/linkedin.png'
-        },
-        {
-          name: 'Email me',
-          link: 'mailto:yopapitrar@gmail.com',
-          img: '/images/icon/email.png'
-        },
-        {
-          name: 'Instagram',
-          link: 'https://instagram.com/yopapr',
-          img: '/images/icon/instagram.png'
-        },
-        {
-          name: 'youtube',
-          link: 'https://youtube.com',
-          img: '/images/icon/youtube.png'
-        },
-        {
-          name: 'twitter',
-          link: 'https://twitter.com',
-          img: '/images/icon/all.png'
-        },
-        {
-          name: 'fecebook',
-          link: 'https://fecebook.com',
-          img: '/images/icon/all.png'
-        }
-      ],
-      value: function () {
-        return <List1 data={this.link} text={'link'} />
-      }
+      name: 'LKS Province 2022',
+      title: 'Cloud computing (AWS)',
+      des: 'Successfully obtained first place in the Provincial Science Competition, thus having the opportunity to represent Bangka Belitung Islands at the national level',
+      img: '/images/scholl.png',
+      date: '27 August 22',
+      link: '/Document/Sertifikat-Juara-LKS-SMK-2022.pdf'
     },
     {
-      name: 'Certificate',
-      Certificate: [
-        {
-          name: 'Dicoding',
-          title: 'Basic JavaScript Programming',
-          des: 'certificate of graduation from dicoding indonesia, i got it in june 2022',
-          img: '/images/dicoding.png',
-          date: 'June 23, 2022',
-          link: 'https://www.dicoding.com/certificates/81P2GVOVOPOY'
-        },
-        {
-          name: 'LKS Province 2022',
-          title: 'Cloud computing (AWS)',
-          des: 'Successfully obtained first place in the Provincial Science Competition, thus having the opportunity to represent Bangka Belitung Islands at the national level',
-          img: '/images/scholl.png',
-          date: '27 August 22',
-          link: '/Document/Sertifikat-Juara-LKS-SMK-2022.pdf'
-        },
-        {
-          name: 'Dicoding',
-          title: 'Back-End for Beginners',
-          des: 'Learning to create a backend application using Node.js technology and Hapi as the framework.',
-          img: '/images/dicoding.png',
-          date: 'November 17, 2022',
-          link: 'https://www.dicoding.com/certificates/1OP850G81PQK'
-        },
-        {
-          name: 'LKS Nasional 2022',
-          title: 'Cloud computing (AWS)',
-          des: 'Creating and deploying scalable and efficient cloud-based applications, successfully achieving a medal of excellence.',
-          img: '/images/LKSN.png',
-          date: 'October 29, 2022',
-          link: '/Document/sertifikat-lks-nasional-yopa-Excellence.pdf'
-        }
-      ],
-      value: function () {
-        return <List2 data={this.Certificate} altText={<div style={{ fontStyle: 'italic' }}>No Certificate now :)</div>} />
-      }
+      name: 'Dicoding',
+      title: 'Back-End for Beginners',
+      des: 'Learning to create a backend application using Node.js technology and Hapi as the framework.',
+      img: '/images/dicoding.png',
+      date: 'November 17, 2022',
+      link: 'https://www.dicoding.com/certificates/1OP850G81PQK'
     },
     {
-      name: 'Tools and Skils',
-      skils: [
-        {
-          name: 'AWS',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Docker',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Networking',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Windows',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Linux desktop',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Linux server',
-          link: null,
-          img: null
-        },
-        {
-          name: 'React js',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Nextjs',
-          link: null,
-          img: null
-        },
-        {
-          name: 'React native',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Vs Code',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Git',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Mysql',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Mongo DB',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Css',
-          link: null,
-          img: null
-        },
-        {
-          name: 'HTML',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Java Script',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Node js',
-          link: null,
-          img: null
-        },
-        {
-          name: 'Arduino',
-          link: null,
-          img: null
-        },
-        {
-          name: 'C++',
-          link: null,
-          img: null
-        }
-      ],
-      value: function () {
-        return <List1 data={this.skils} text={'skils'} />
-      }
-    },
-    {
-      name: 'Experience',
-      experience: [
-        // {
-        //   name: 'Google',
-        //   title: 'Software Engineer',
-        //   des: 'Worked on various projects related to machine learning and artificial intelligence.',
-        //   img: '/images/google.png',
-        //   date: 'May 2019 - Present',
-        //   link: 'https://www.google.com'
-        // },
-        // {
-        //   name: 'Microsoft',
-        //   title: 'Software Developer',
-        //   des: 'Developed enterprise-level software solutions for various clients.',
-        //   img: '/images/microsoft.png',
-        //   date: 'January 2017 - April 2019',
-        //   link: 'https://www.microsoft.com'
-        // },
-        // {
-        //   name: 'Amazon',
-        //   title: 'Senior Software Engineer',
-        //   des: 'Designed and implemented scalable and high-performance systems for Amazon Web Services.',
-        //   img: '/images/amazon.png',
-        //   date: 'July 2014 - December 2016',
-        //   link: 'https://www.amazon.com'
-        // }
-      ],
-      value: function () {
-        return <List2 data={this.experience} altText={<div style={{ fontStyle: 'italic' }}>No work experience now :)</div>} />
-      }
-    },
-    {
-      name: 'Blog',
-      blog: [
-        // {
-        //   title: 'Post 1',
-        //   des: 'This is the first post on my blog.',
-        //   img: '/images/post1.jpg',
-        //   date: 'April 29, 2023',
-        //   link: '/post-1'
-        // },
-        // {
-        //   title: 'Post 2',
-        //   des: 'This is the second post on my blog.',
-        //   img: '/images/post2.jpg',
-        //   date: 'May 1, 2023',
-        //   link: '/post-2'
-        // },
-        // {
-        //   title: 'Post 3',
-        //   des: 'This is the third post on my blog.',
-        //   img: '/images/post3.jpg',
-        //   date: 'May 3, 2023',
-        //   link: '/post-3'
-        // }
-      ],
-      value: function () {
-        return <List2 data={this.blog} altText={<div style={{ fontStyle: 'italic' }}>No Blog now :)</div>} />
-      }
-    },
-    {
-      name: 'Mail Me',
-      value: function () {
-        return <MailMe />
-      }
+      name: 'LKS Nasional 2022',
+      title: 'Cloud computing (AWS)',
+      des: 'Creating and deploying scalable and efficient cloud-based applications, successfully achieving a medal of excellence.',
+      img: '/images/LKSN.png',
+      date: 'October 29, 2022',
+      link: '/Document/sertifikat-lks-nasional-yopa-Excellence.pdf'
     }
-  ]
+  ],
+  skils: [
+    {
+      name: 'AWS',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Docker',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Networking',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Windows',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Linux desktop',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Linux server',
+      link: null,
+      img: null
+    },
+    {
+      name: 'React js',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Nextjs',
+      link: null,
+      img: null
+    },
+    {
+      name: 'React native',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Vs Code',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Git',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Mysql',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Mongo DB',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Css',
+      link: null,
+      img: null
+    },
+    {
+      name: 'HTML',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Java Script',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Node js',
+      link: null,
+      img: null
+    },
+    {
+      name: 'Arduino',
+      link: null,
+      img: null
+    },
+    {
+      name: 'C++',
+      link: null,
+      img: null
+    }
+  ],
+  experience: [
+    // {
+    //   name: 'Google',
+    //   title: 'Software Engineer',
+    //   des: 'Worked on various projects related to machine learning and artificial intelligence.',
+    //   img: '/images/google.png',
+    //   date: 'May 2019 - Present',
+    //   link: 'https://www.google.com'
+    // },
+    // {
+    //   name: 'Microsoft',
+    //   title: 'Software Developer',
+    //   des: 'Developed enterprise-level software solutions for various clients.',
+    //   img: '/images/microsoft.png',
+    //   date: 'January 2017 - April 2019',
+    //   link: 'https://www.microsoft.com'
+    // },
+    // {
+    //   name: 'Amazon',
+    //   title: 'Senior Software Engineer',
+    //   des: 'Designed and implemented scalable and high-performance systems for Amazon Web Services.',
+    //   img: '/images/amazon.png',
+    //   date: 'July 2014 - December 2016',
+    //   link: 'https://www.amazon.com'
+    // }
+  ],
+  blog: [
+    {
+      name: 'Test',
+      title: 'Test Post 1',
+      des: 'This is the test post on my blog.',
+      img: '/images/bg.webp',
+      date: 'Mei 15, 2023',
+      link: '/blog'
+    }
+    // {
+    //   title: 'Post 2',
+    //   des: 'This is the second post on my blog.',
+    //   img: '/images/post2.jpg',
+    //   date: 'May 1, 2023',
+    //   link: '/post-2'
+    // },
+    // {
+    //   title: 'Post 3',
+    //   des: 'This is the third post on my blog.',
+    //   img: '/images/post3.jpg',
+    //   date: 'May 3, 2023',
+    //   link: '/post-3'
+    // }
+  ],
+  morePage: []
+}
+
+data.morePage[0] = {
+  name: 'Repository',
+  value: function () {
+    return <Repository />
+  }
+}
+
+data.morePage[1] = {
+  name: 'Link',
+  value: function () {
+    return <List1 data={data.link} text={'link'} />
+  }
+}
+
+data.morePage[2] = {
+  name: 'Certificate',
+  value: function () {
+    return <List2 data={data.Certificate} altText={<div style={{ fontStyle: 'italic' }}>No Certificate now :)</div>} />
+  }
+}
+
+data.morePage[3] = {
+  name: 'Tools and Skils',
+  value: function () {
+    return <List1 data={data.skils} text={'skils'} />
+  }
+}
+
+data.morePage[4] = {
+  name: 'Experience',
+  value: function () {
+    return <List2 data={data.experience} altText={<div style={{ fontStyle: 'italic' }}>No work experience now :)</div>} />
+  }
+}
+
+data.morePage[5] = {
+  name: 'Blog',
+  value: function () {
+    return <List2 data={data.blog} altText={<div style={{ fontStyle: 'italic' }}>No Blog now :)</div>} />
+  }
+}
+
+data.morePage[6] = {
+  name: 'Mail Me',
+  value: function () {
+    return <MailMe />
+  }
 }
 
 export default data
