@@ -54,16 +54,13 @@ export default function Index({ visitorCount }) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ req, res, query }) {
   const API = axios.create({ headers: { 'x-api-key': process.env.API_KEY } })
-  const reqRes = {
-    req: context.req,
-    res: context.res
-  }
-  const visitor = parser(context.req.headers['user-agent'])
+  const reqRes = { req, res }
+  const visitor = parser(req.headers['user-agent'])
   const isNewVisitor = !hasCookie('isVisitor', { ...reqRes })
   const backendPath = process.env.BACKEND_HOST
-  const ipAddress = context.req.headers['x-forwarded-for'] || context.req.connection.remoteAddress
+  const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress
   let visitorCount
 
   // get more info from ip address with ipapi api
@@ -77,7 +74,7 @@ export async function getServerSideProps(context) {
 
   const lang = visitor.visitor && visitor.visitor.languages ? visitor.visitor.languages : 'en'
 
-  if (!context.query.lang) {
+  if (!query.lang) {
     return {
       redirect: {
         destination: '/?lang=' + lang.split(',')[0],

@@ -75,7 +75,8 @@ function ResponseApi(req, res, code = 200, data = {}, error = []) {
     ip: req.ip
   }
 
-  res.status(code).send(result)
+  res.status(code)
+  res.send(result)
 }
 
 export default ResponseApi

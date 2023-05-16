@@ -1,0 +1,188 @@
+{
+  "name": "Yopa pitra ramadhani",
+  "des": "``I am a student of computer network engineering who possesses skills in web programming, IoT, and cloud computing. I am very enthusiastic and always eager to learn new things in the field of information technology. I hope to utilize my skills to contribute to the world of technology and achieve success in the future.``",
+  "address": "Bangka-Belitung Islands, Indonesia",
+  "work": "Fullstack developer",
+  "email": "yopapitrar@gmail.com",
+  "githubUsername": "yopaaa",
+  "link": [
+    {
+      "name": "github",
+      "link": "https://github.com/yopaaa",
+      "img": "/images/icon/github.png"
+    },
+    {
+      "name": "linkedin",
+      "link": "https://www.linkedin.com/in/yopaaa/",
+      "img": "/images/icon/linkedin.png"
+    },
+    {
+      "name": "Email me",
+      "link": "mailto:yopapitrar@gmail.com",
+      "img": "/images/icon/email.png"
+    },
+    {
+      "name": "Instagram",
+      "link": "https://instagram.com/yopapr",
+      "img": "/images/icon/instagram.png"
+    },
+    {
+      "name": "twitter",
+      "link": "https://twitter.com",
+      "img": "/images/icon/twitter.png"
+    },
+    {
+      "name": "youtube",
+      "link": "https://youtube.com",
+      "img": "/images/icon/youtube.png"
+    },
+    {
+      "name": "fecebook",
+      "link": "https://fecebook.com",
+      "img": "/images/icon/all.png"
+    }
+  ],
+  "Certificate": [
+    {
+      "name": "Dicoding",
+      "title": "Basic JavaScript Programming",
+      "des": "certificate of graduation from dicoding indonesia, i got it in june 2022",
+      "img": "/images/dicoding.png",
+      "date": "June 23, 2022",
+      "link": "https://www.dicoding.com/certificates/81P2GVOVOPOY"
+    },
+    {
+      "name": "LKS Province 2022",
+      "title": "Cloud computing (AWS)",
+      "des": "Successfully obtained first place in the Provincial Science Competition, thus having the opportunity to represent Bangka Belitung Islands at the national level",
+      "img": "/images/scholl.png",
+      "date": "27 August 22",
+      "link": "/Document/Sertifikat-Juara-LKS-SMK-2022.pdf"
+    },
+    {
+      "name": "Dicoding",
+      "title": "Back-End for Beginners",
+      "des": "Learning to create a backend application using Node.js technology and Hapi as the framework.",
+      "img": "/images/dicoding.png",
+      "date": "November 17, 2022",
+      "link": "https://www.dicoding.com/certificates/1OP850G81PQK"
+    },
+    {
+      "name": "LKS Nasional 2022",
+      "title": "Cloud computing (AWS)",
+      "des": "Creating and deploying scalable and efficient cloud-based applications, successfully achieving a medal of excellence.",
+      "img": "/images/LKSN.png",
+      "date": "October 29, 2022",
+      "link": "/Document/sertifikat-lks-nasional-yopa-Excellence.pdf"
+    }
+  ],
+  "skils": [
+    {
+      "name": "AWS",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Docker",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Networking",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Windows",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Linux desktop",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Linux server",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "React js",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Nextjs",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "React native",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Vs Code",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Git",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Mysql",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Mongo DB",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Css",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "HTML",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Java Script",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Node js",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "Arduino",
+      "link": null,
+      "img": null
+    },
+    {
+      "name": "C++",
+      "link": null,
+      "img": null
+    }
+  ],
+  "experience": [],
+  "blog": [
+    {
+      "name": "Test",
+      "title": "Test Post 1",
+      "des": "This is the test post on my blog.",
+      "img": "/images/bg.webp",
+      "date": "Mei 15, 2023",
+      "link": "/blog"
+    }
+  ],
+  "morePage": []
+}
