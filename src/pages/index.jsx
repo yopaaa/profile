@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import Home from '../components/Home'
-import data from '../js/data'
-import parser from 'ua-parser-js'
-import axios from 'axios'
 import { hasCookie, setCookie } from 'cookies-next'
+import getData from '../js/getData'
+import getVisitor from '../js/getVisitor'
+import postVisitors from '../js/postVisitors'
 
-export default function Index({ visitorCount }) {
+export default function Index(props) {
   const profile = '/images/profile.webp'
+  const { visitorCount, data, isError, errMsg } = props
 
   return (
     <>
@@ -32,7 +33,7 @@ export default function Index({ visitorCount }) {
               style={{ backgroundImage: `url(${profile})` }}
               title="profile"
             />
-            <Home />
+            {isError ? errMsg : <Home data={data} />}
           </div>
         </div>
         <div className="w-full lg:w-2/5">
@@ -48,71 +49,70 @@ export default function Index({ visitorCount }) {
           fontSize: '13px'
         }}
       >
-        <p>visitor count from april 29, 2023 : {visitorCount}</p>
+        <p>
+          visitor count from april 29, 2023 : {visitorCount} {}
+        </p>
       </div>
     </>
   )
 }
 
 export async function getServerSideProps({ req, res, query }) {
-  const API = axios.create({ headers: { 'x-api-key': process.env.API_KEY } })
-  const reqRes = { req, res }
-  const visitor = parser(req.headers['user-agent'])
-  const isNewVisitor = !hasCookie('isVisitor', { ...reqRes })
-  const backendPath = process.env.BACKEND_HOST
+  const userAgent = req.headers['user-agent']
+  const isNewVisitor = !hasCookie('isVisitor', { req, res })
   const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-  let visitorCount
+  const queryKey = ['name', 'des', 'address', 'work', 'githubUsername', 'link']
+  let visitorCount = 'Failed to get data'
+  let lang = 'en'
 
-  // get more info from ip address with ipapi api
   try {
-    const extractIp = await axios.get(`https://ipapi.co/${ipAddress}/json/`)
-    visitor.visitor = extractIp.data
-  } catch (error) {
-    console.log(error.message)
-    visitor.visitor = ipAddress
-  }
+    const getDatas = await getData(queryKey)
+    if (isNewVisitor) {
+      setCookie('isVisitor', 'true', {
+        httpOnly: true,
+        maxAge: 60 * 60,
+        req,
+        res
+      })
+      console.log('new visitor found : ' + ipAddress)
 
-  const lang = visitor.visitor && visitor.visitor.languages ? visitor.visitor.languages : 'en'
+      // send new visitor data to backend
+      const x = await postVisitors({ userAgent, ipAddress })
+      visitorCount = x.count
+      lang = x.lang
+    } else {
+      // get visitors count
+      const x = await getVisitor()
+      visitorCount = x.count
+    }
 
-  if (!query.lang) {
-    return {
-      redirect: {
-        destination: '/?lang=' + lang.split(',')[0],
-        permanent: false
+    if (!query.lang) {
+      return {
+        redirect: {
+          destination: '/?lang=' + lang,
+          permanent: false
+        }
       }
     }
-  }
 
-  if (isNewVisitor) {
-    setCookie('isVisitor', 'true', {
-      httpOnly: true,
-      maxAge: 60 * 60,
-      ...reqRes
-    })
-    console.log('new visitor found : ' + ipAddress)
+    console.log(`Client ${ipAddress}, visitor count : ${visitorCount}`)
 
-    // send new visitor data to backend
-    try {
-      API.post(`${backendPath}/visitors/${data.githubUsername}/new`, visitor)
-    } catch (error) {
-      console.log(error.message)
+    return {
+      props: {
+        isError: false,
+        visitorCount,
+        data: getDatas
+      }
     }
-  }
-
-  // get visitor count from backend
-  try {
-    const getVisitorCount = await API.get(`${backendPath}/visitors/${data.githubUsername}/count`, {})
-    visitorCount = getVisitorCount.data.payload.count
   } catch (error) {
-    visitorCount = 'Failed to get data'
     console.log(error.message)
-  }
-
-  console.log(`Client ${ipAddress}, visitor count : ${visitorCount}`)
-
-  return {
-    props: {
-      visitorCount
+    return {
+      props: {
+        isError: true,
+        errMsg: error.message,
+        visitorCount,
+        data: {}
+      }
     }
   }
 }

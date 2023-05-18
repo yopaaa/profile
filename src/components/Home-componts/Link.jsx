@@ -1,22 +1,32 @@
 import { useEffect, useState } from 'react'
-import data from '../../js/data.js'
 
-const Link = () => {
-  const [list, setList] = useState()
+const Link = ({ data }) => {
+  const [list, setList] = useState(
+    <>
+      <div className="link animate-pulse" style={{ backgroundColor: 'grey', height: 30, width: 30, borderRadius: '50%' }}></div>
+      <div className="link animate-pulse" style={{ backgroundColor: 'grey', height: 30, width: 30, borderRadius: '50%' }}></div>
+      <div className="link animate-pulse" style={{ backgroundColor: 'grey', height: 30, width: 30, borderRadius: '50%' }}></div>
+      <div className="link animate-pulse" style={{ backgroundColor: 'grey', height: 30, width: 30, borderRadius: '50%' }}></div>
+      <div className="link animate-pulse" style={{ backgroundColor: 'grey', height: 30, width: 30, borderRadius: '50%' }}></div>
+    </>
+  )
 
   useEffect(() => {
-    setList(
-      data.link.slice(0, 5).map((val) => {
-        return (
-          <a className="link" href={val.link} key={val.name} target="_blank" rel="noreferrer">
-            <span className="h-6 fill-current text-gray-600 hover:text-green-700" role="img" xmlns="http://www.w3.org/2000/svg">
-              <img width="25px" height="25px" src={val.img} alt="logo" title={val.name} />
-            </span>
-          </a>
-        )
-      })
-    )
+    if (data) {
+      setList(
+        data.slice(0, 5).map((val) => {
+          return (
+            <a className="link" href={val.link} key={val.name} target="_blank" rel="noreferrer">
+              <span className="h-6 fill-current text-gray-600 hover:text-green-700" role="img" xmlns="http://www.w3.org/2000/svg">
+                <img width="25px" height="25px" src={val.img} alt="logo" title={val.name} />
+              </span>
+            </a>
+          )
+        })
+      )
+    }
   }, [])
+
   return (
     <div>
       <div

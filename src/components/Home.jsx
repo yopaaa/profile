@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import Link from './Home-componts/Link'
-import data from '../js/data.js'
 import { useRouter } from 'next/router'
 import translate from 'translate'
 
-const Home = () => {
+const Home = ({ data }) => {
   const router = useRouter()
   translate.engine = 'google' // "google", "yandex", "libre", "deepl"
   const [description, setdescription] = useState(data.des)
@@ -29,6 +28,7 @@ const Home = () => {
     const getQueryLang = router.query.lang
     if (getQueryLang) translateText(getQueryLang)
   }, [])
+
   return (
     <>
       <div>
@@ -68,7 +68,7 @@ const Home = () => {
           </button>
         </div>
 
-        <Link />
+        <Link data={data.link}/>
       </div>
     </>
   )
