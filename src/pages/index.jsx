@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Home from '../components/Home'
-import { hasCookie, setCookie } from 'cookies-next'
+import { hasCookie, setCookie, getCookie } from 'cookies-next'
 import getData from '../js/getData'
 import getVisitor from '../js/getVisitor'
 import postVisitors from '../js/postVisitors'
@@ -68,6 +68,7 @@ export async function getServerSideProps({ req, res, query }) {
   try {
     const getDatas = await getData(queryKey)
     if (isNewVisitor) {
+      // set is visitor
       setCookie('isVisitor', 'true', {
         httpOnly: true,
         maxAge: 60 * 60,
@@ -80,6 +81,7 @@ export async function getServerSideProps({ req, res, query }) {
       const x = await postVisitors({ userAgent, ipAddress })
       visitorCount = x.count
       lang = x.lang
+      setCookie('lang', lang, { req, res })
     } else {
       // get visitors count
       const x = await getVisitor()
@@ -87,6 +89,7 @@ export async function getServerSideProps({ req, res, query }) {
     }
 
     if (!query.lang) {
+      if (hasCookie('lang', { req, res })) lang = getCookie('lang', { req, res })
       return {
         redirect: {
           destination: '/?lang=' + lang,

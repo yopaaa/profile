@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import data from '../js/data'
 import style from '../styles/More.module.css'
 
@@ -14,16 +15,18 @@ const Home = () => {
   function getNav(curretPage = 'Repository') {
     setContentNavigation(
       <div className={style.ContentNavigation}>
-        <p
-          onClick={() => {
-            router.push('/', '/', {
-              // shallow: true
-            })
-          }}
-          className={style.backBtn}
-        >
-          Back
-        </p>
+        <Link href={'..'}>
+          <p
+            // onClick={() => {
+            //   router.push('..', '..', {
+            //     // shallow: true
+            //   })
+            // }}
+            className={style.backBtn}
+          >
+            Back
+          </p>
+        </Link>
 
         {contentList.map((val) => {
           const name = val.name
