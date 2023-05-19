@@ -1,10 +1,22 @@
-import { useState } from 'react'
-import data from '../../js/data.js'
+import { useEffect, useState } from 'react'
 import style from '../../styles/MailMe.module.css'
+import axios from 'axios'
 
 const MailMe = () => {
   const [mailBody, setMailBody] = useState('')
+  const [mailto, setmailto] = useState('')
   const [name, setName] = useState('Anonymous')
+
+  useEffect(() => {
+    axios
+      .get('/api/data?email=1')
+      .then((val) => {
+        setmailto(val.data.payload.email)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }, [])
 
   return (
     <div className={style.mailMeContainer}>
@@ -21,7 +33,7 @@ const MailMe = () => {
       <br />
       <a
         rel="noreferrer"
-        href={`mailto:${data.email}?subject=${'message from ' + name + ' - profile.yopaaa.site'}&body=${mailBody}`}
+        href={`mailto:${mailto}?subject=${'message from ' + name + ' - profile.yopaaa.site'}&body=${mailBody}`}
         target="_blank"
       >
         Send an Email

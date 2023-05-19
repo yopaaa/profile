@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import data from '../js/data'
 import styles from '../styles/Blog.module.css'
 
 export default function Index() {
@@ -7,10 +6,10 @@ export default function Index() {
     <>
       <Head>
         <title>{'Profile'}</title>
-        <meta
+        {/* <meta
           name="description"
           content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}, ${data.des}`}
-        />
+        /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" type="image/jpg" href="/images/linux.ico" />

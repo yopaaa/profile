@@ -15,7 +15,7 @@ export default function Index(props) {
         <title>{'Profile'}</title>
         <meta
           name="description"
-          content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}, ${data.des}`}
+          content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -59,9 +59,9 @@ export default function Index(props) {
 
 export async function getServerSideProps({ req, res, query }) {
   const userAgent = req.headers['user-agent']
-  const isNewVisitor = !hasCookie('isVisitor', { req, res })
   const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-  const queryKey = ['name', 'des', 'address', 'work', 'githubUsername', 'link']
+  const queryKey = ['name', 'des', 'address', 'work', 'githubUsername', 'Link']
+  const isNewVisitor = !hasCookie('isVisitor', { req, res })
   let visitorCount = 'Failed to get data'
   let lang = 'en'
 
@@ -75,13 +75,13 @@ export async function getServerSideProps({ req, res, query }) {
         req,
         res
       })
-      console.log('new visitor found : ' + ipAddress)
+      console.log('new visitor found ip : ' + ipAddress)
 
       // send new visitor data to backend
       const x = await postVisitors({ userAgent, ipAddress })
       visitorCount = x.count
       lang = x.lang
-      setCookie('lang', lang, { req, res })
+      setCookie('lang', lang, { maxAge: 60 * 60, req, res })
     } else {
       // get visitors count
       const x = await getVisitor()

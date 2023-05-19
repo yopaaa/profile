@@ -1,18 +1,15 @@
 import Head from 'next/head'
 import More from '../components/More'
-import data from '../js/data'
+import getData from '../js/getData'
 
-export default function Index() {
+export default function Index({ data }) {
   const profile = '/images/profile.webp'
 
   return (
     <>
       <Head>
         <title>{'Profile'}</title>
-        <meta
-          name="description"
-          content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}, ${data.des}`}
-        />
+        <meta name="description" content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" type="image/jpg" href="/images/linux.ico" />
@@ -30,7 +27,7 @@ export default function Index() {
               title="profile"
             />
 
-            <More />
+            <More data={data} />
           </div>
         </div>
         <div className="w-full lg:w-2/5">
@@ -39,4 +36,27 @@ export default function Index() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const queryKey = ['name', 'address', 'work', 'githubUsername']
+
+  try {
+    const getDatas = await getData(queryKey)
+    return {
+      props: {
+        isError: false,
+        data: getDatas
+      }
+    }
+  } catch (error) {
+    console.log(error.message)
+    return {
+      props: {
+        isError: true,
+        errMsg: error.message,
+        data: {}
+      }
+    }
+  }
 }

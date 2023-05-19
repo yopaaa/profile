@@ -14,8 +14,8 @@ const List = ({ path, ObjKey }) => {
     axios
       .get(path)
       .then((val) => {
-        datas = val.data.payload[0][ObjKey].reverse()
-        console.log(datas)
+        datas = val.data.payload[ObjKey].reverse()
+        // console.log(datas)
         setList(
           datas.map((val) => {
             return (

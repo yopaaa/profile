@@ -1,11 +1,72 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import data from '../js/data'
 import style from '../styles/More.module.css'
+import Repository from './More-components/Repository'
+import List1 from './More-components/List1'
+import List2 from './More-components/List2'
+import MailMe from './More-components/MailMe'
 
-const Home = () => {
-  const contentList = data.morePage
+const Home = ({ data }) => {
+  const contentList = [
+    {
+      name: 'Repository',
+      value: function () {
+        return <Repository username={data.githubUsername} />
+      }
+    },
+    {
+      name: 'Link',
+      value: function () {
+        return <List1 path={'/api/data?Link=1'} ObjKey={'Link'} />
+      }
+    },
+    {
+      name: 'Certificate',
+      value: function () {
+        return (
+          <List2
+            path={'/api/data?Certificate=1'}
+            ObjKey={'Certificate'}
+            altText={<div style={{ fontStyle: 'italic' }}>No Certificate now :)</div>}
+          />
+        )
+      }
+    },
+    {
+      name: 'Tools and Skils',
+      value: function () {
+        return <List1 path={'/api/data?Skills=1'} ObjKey={'Skills'} />
+      }
+    },
+    {
+      name: 'Experience',
+      value: function () {
+        return (
+          <List2
+            path={'/api/data?Experience=1'}
+            ObjKey={'Experience'}
+            altText={<div style={{ fontStyle: 'italic' }}>No work experience now :)</div>}
+          />
+        )
+      }
+    },
+    {
+      name: 'Blog',
+      value: function () {
+        return (
+          <List2 path={'/api/data?Blog=1'} ObjKey={'Blog'} altText={<div style={{ fontStyle: 'italic' }}>No Blog now :)</div>} />
+        )
+      }
+    },
+    {
+      name: 'Mail Me',
+      value: function () {
+        return <MailMe />
+      }
+    }
+  ]
+
   const [ContentNavigation, setContentNavigation] = useState()
   const [content, setcontent] = useState()
   const router = useRouter()
@@ -15,17 +76,8 @@ const Home = () => {
   function getNav(curretPage = 'Repository') {
     setContentNavigation(
       <div className={style.ContentNavigation}>
-        <Link href={'..'}>
-          <p
-            // onClick={() => {
-            //   router.push('..', '..', {
-            //     // shallow: true
-            //   })
-            // }}
-            className={style.backBtn}
-          >
-            Back
-          </p>
+        <Link href={'..'} className={style.backBtn}>
+          Back
         </Link>
 
         {contentList.map((val) => {

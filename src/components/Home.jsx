@@ -68,7 +68,7 @@ const Home = ({ data }) => {
           </button>
         </div>
 
-        <Link data={data.link}/>
+        <Link data={data.Link}/>
       </div>
     </>
   )

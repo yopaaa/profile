@@ -16,10 +16,10 @@ const List = ({ path, ObjKey, altText = '' }) => {
     axios
       .get(path)
       .then((val) => {
-        console.log(val)
-        datas = val.data.payload[0][ObjKey].reverse()
+        // console.log(val)
+        datas = val.data.payload[ObjKey].reverse()
         if (datas.length < 1) {
-          setcontent(<div style={{ fontStyle: 'italic' }}>{altText}</div>)
+          setcontent(<div style={{ fontStyle: 'italic', margin: 'auto' }}>{altText}</div>)
         } else {
           setcontent(
             datas.map((value) => {

@@ -3,7 +3,7 @@ import axios from 'axios'
 import moment from 'moment'
 import style from '../../styles/Repository.module.css'
 
-const Repository = () => {
+const Repository = ({ username }) => {
   const [repoList, setRepoList] = useState(
     <div className={style.repositoryContainer + ' animate-pulse'}>
       <span
@@ -21,7 +21,7 @@ const Repository = () => {
   )
 
   async function getRepo() {
-    const datas = await axios.get('https://api.github.com/users/yopaaa/repos?sort=pushed')
+    const datas = await axios.get(`https://api.github.com/users/${username}/repos?sort=pushed`)
     setRepoList(
       datas.data.map((val) => {
         // console.log(val);
