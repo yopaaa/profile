@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Blog.module.css'
-
+import Code from '../components/Code'
 export default function Index() {
   return (
     <>
@@ -57,6 +57,37 @@ export default function Index() {
           necessitatibus, omnis dolorem corporis velit nam officia veritatis. Corrupti laboriosam aperiam animi repellat vero enim
           obcaecati cupiditate perspiciatis exercitationem hic, deserunt repudiandae itaque quisquam, voluptas deleniti vitae
           provident saepe maxime at, esse quam! Molestias ducimus veritatis magni nisi dolorum?
+          <br />
+          <Code
+            text={`
+import axios from 'axios'
+
+export default function (queryKey) {
+  const API = axios.create({ headers: { 'x-api-key': process.env.API_KEY } })
+  const backendPath = process.env.BACKEND_HOST
+  const username = process.env.USER_NAME
+  let querytext = '?'
+  queryKey.map((key) => {
+    if (querytext.length < 5) return (querytext += key + '=1')
+    return (querytext += '&' + key + '=1')
+  })
+  const path = \`\${backendPath}/visitors/\${username}\${querytext}\`
+
+  return new Promise((resolve, reject) => {
+    // get data from database
+    API.get(path)
+      .then((response) => {
+        resolve(response.data.payload[0])
+      })
+      .catch((error) => {
+        reject(new Error(error.message))
+      })
+  })
+}
+            `}
+            lang={'js'}
+            theme={'atom-dark'}
+          />
         </div>
       </div>
     </>
