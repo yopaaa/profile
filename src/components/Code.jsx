@@ -26,14 +26,14 @@ const MyComponent = ({ text, lang, theme }) => {
   }, [])
 
   return (
-    <div className="code-container">
+    <>
       <link rel="stylesheet" href={`/prism/themes/prism-${theme}.css`} />
-      <pre className="code-block">
+      <pre className="code-block" style={{ borderRadius: 20 }}>
         <code className={`language-${lang}`} style={{ letterSpacing: 0.6 }}>
           {text}
         </code>
       </pre>
-    </div>
+    </>
   )
 }
 

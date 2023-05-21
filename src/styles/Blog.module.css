@@ -3,14 +3,14 @@
     padding: 200px;
     padding-top: 50px;
     line-height: 1.5;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 .blogType {
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 4px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     /* // color: rgb(0, 105, 255) */
     color: blue;
     padding: 10;
@@ -26,8 +26,10 @@
 
 .title {
     letter-spacing: 0.5px;
-    font-size: 35px;
     margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 40px;
 }
 
 .infoContainer {
@@ -45,7 +47,7 @@
     border-style: none;
     border-radius: 24px;
     display: block;
-    margin: 40px 0px;
+    margin: 40px;
     width: 100%;
     overflow: hidden;
 }
