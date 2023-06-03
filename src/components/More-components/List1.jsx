@@ -2,12 +2,27 @@ import { useState, useEffect } from 'react'
 import style from '../../styles/List1.module.css'
 import axios from 'axios'
 
-const List = ({ path, ObjKey }) => {
-  const [list, setList] = useState(
-    <div className={style.LinkContainer + ' animate-pulse'} style={{ paddingBottom: 50 }}>
-      <span className="name animate-pulse"></span>
-    </div>
+const Loading = () => {
+  return (
+    <>
+      <div className={style.LinkContainer + ' animate-pulse'} style={{ paddingBottom: 50 }}>
+        <span className="name animate-pulse"></span>
+      </div>
+      <div className={style.LinkContainer + ' animate-pulse'} style={{ paddingBottom: 50 }}>
+        <span className="name animate-pulse"></span>
+      </div>
+      <div className={style.LinkContainer + ' animate-pulse'} style={{ paddingBottom: 50 }}>
+        <span className="name animate-pulse"></span>
+      </div>
+      <div className={style.LinkContainer + ' animate-pulse'} style={{ paddingBottom: 50 }}>
+        <span className="name animate-pulse"></span>
+      </div>
+    </>
   )
+}
+
+const List = ({ path, ObjKey }) => {
+  const [list, setList] = useState(<Loading />)
   let datas = []
 
   useEffect(() => {
