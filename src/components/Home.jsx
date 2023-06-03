@@ -55,20 +55,16 @@ const Home = ({ data }) => {
         </p>
 
         <div className="pt-8 pb-5">
-          <button
+          <a
+            href="/more"
             className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
-            onClick={(ev) => {
-              router.push('/more', '/more', {
-                shallow: true
-              })
-            }}
             title="View more information"
           >
             {moreBtnText}
-          </button>
+          </a>
         </div>
 
-        <Link data={data.Link}/>
+        <Link data={data.Link} />
       </div>
     </>
   )
