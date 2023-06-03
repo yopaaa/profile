@@ -2,14 +2,29 @@ import { useState, useEffect } from 'react'
 import style from '../../styles/List2.module.css'
 import axios from 'axios'
 
-const List = ({ path, ObjKey, altText = '' }) => {
-  const [content, setcontent] = useState(
-    <div className={style.card + ' animate-pulse'}>
-      <div className={style.cardHeader + ' animate-pulse'} style={{ padding: 50, backgroundColor: 'gray' }}></div>
+const Loading = () => {
+  return (
+    <>
+      <div className={style.card + ' animate-pulse'}>
+        <div className={style.cardHeader + ' animate-pulse'} style={{ padding: 50, backgroundColor: 'gray' }}></div>
 
-      <div className={style.cardBody + ' animate-pulse'} style={{ padding: 30, margin: 10, backgroundColor: 'gray' }}></div>
-    </div>
+        <div className={style.cardBody + ' animate-pulse'} style={{ padding: 30, margin: 10, backgroundColor: 'gray' }}></div>
+      </div>
+      <div className={style.card + ' animate-pulse'}>
+        <div className={style.cardHeader + ' animate-pulse'} style={{ padding: 50, backgroundColor: 'gray' }}></div>
+
+        <div className={style.cardBody + ' animate-pulse'} style={{ padding: 30, margin: 10, backgroundColor: 'gray' }}></div>
+      </div>
+      <div className={style.card + ' animate-pulse'}>
+        <div className={style.cardHeader + ' animate-pulse'} style={{ padding: 50, backgroundColor: 'gray' }}></div>
+
+        <div className={style.cardBody + ' animate-pulse'} style={{ padding: 30, margin: 10, backgroundColor: 'gray' }}></div>
+      </div>
+    </>
   )
+}
+const List = ({ path, ObjKey, altText = '' }) => {
+  const [content, setcontent] = useState(<Loading />)
   let datas = []
 
   useEffect(() => {
