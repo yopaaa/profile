@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Link from './Home-componts/Link'
 import { useRouter } from 'next/router'
 import translate from 'translate'
+import Angker from 'next/link'
 
 const Home = ({ data }) => {
   const router = useRouter()
@@ -55,13 +56,13 @@ const Home = ({ data }) => {
         </p>
 
         <div className="pt-8 pb-5">
-          <a
+          <Angker
             href="/more"
             className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
             title="View more information"
           >
             {moreBtnText}
-          </a>
+          </Angker>
         </div>
 
         <Link data={data.Link} />
