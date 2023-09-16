@@ -15,6 +15,7 @@ export default function (queryKey) {
     // get data from database
     API.get(path)
       .then((response) => {
+        // console.log(response);
         resolve(response.data.payload[0])
       })
       .catch((error) => {
