@@ -67,6 +67,7 @@ export async function getServerSideProps({ req, res, query }) {
 
   try {
     const getDatas = await getData(queryKey)
+    // console.log(getDatas);
     if (isNewVisitor) {
       // set is visitor
       setCookie('isVisitor', 'true', {
