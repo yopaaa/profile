@@ -9,14 +9,15 @@ export default function (queryKey) {
     if (querytext.length < 5) return (querytext += key + '=1')
     return (querytext += '&' + key + '=1')
   })
-  const path = `${backendPath}/visitors/${username}${querytext}`
+  const path = `${backendPath}/visitors/${username}/data${querytext}`
 
+  // console.log(path)
   return new Promise((resolve, reject) => {
     // get data from database
     API.get(path)
       .then((response) => {
-        // console.log(response);
-        resolve(response.data.payload[0])
+        // console.log(response.data)
+        resolve(response.data)
       })
       .catch((error) => {
         reject(new Error(error.message))
