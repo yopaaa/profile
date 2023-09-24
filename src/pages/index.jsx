@@ -4,6 +4,7 @@ import { hasCookie, setCookie, getCookie } from 'cookies-next'
 import getData from '../js/getData'
 import getVisitor from '../js/getVisitor'
 import postVisitors from '../js/postVisitors'
+import { getLink } from '../js/getLinks'
 
 export default function Index(props) {
   const profile = '/images/profile.webp'
@@ -13,10 +14,7 @@ export default function Index(props) {
     <>
       <Head>
         <title>{'Profile'}</title>
-        <meta
-          name="description"
-          content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}`}
-        />
+        <meta name="description" content={`${data.name},${data.githubUsername} website, ${data.work},  ${data.address}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" type="image/jpg" href="/images/linux.ico" />
@@ -60,14 +58,16 @@ export default function Index(props) {
 export async function getServerSideProps({ req, res, query }) {
   const userAgent = req.headers['user-agent']
   const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-  const queryKey = ['name', 'des', 'address', 'work', 'githubUsername', 'Link']
   const isNewVisitor = !hasCookie('isVisitor', { req, res })
   let visitorCount = 'Failed to get data'
   let lang = 'en'
+  let data = {}
 
   try {
-    const getDatas = await getData(queryKey)
-    // console.log(getDatas);
+    const getDatas = await getData([])
+    const getLinks = await getLink([])
+    data = { ...getDatas.payload, ...getLinks.payload }
+    console.log(data)
     if (isNewVisitor) {
       // set is visitor
       setCookie('isVisitor', 'true', {
@@ -105,7 +105,7 @@ export async function getServerSideProps({ req, res, query }) {
       props: {
         isError: false,
         visitorCount,
-        data: getDatas
+        data
       }
     }
   } catch (error) {
