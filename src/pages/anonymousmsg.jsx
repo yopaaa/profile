@@ -1,11 +1,14 @@
 import axios from 'axios'
 import Head from 'next/head'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Index(props) {
   const [msg, setmsg] = useState('')
+  const [isLoading, setisLoading] = useState(false)
 
   function sendMsg() {
+    setisLoading(true)
     axios
       .post('/api/anonymousmsg', { msg })
       .then((val) => {
@@ -13,6 +16,10 @@ export default function Index(props) {
       })
       .catch((er) => {
         alert(er.message)
+      })
+      .finally(() => {
+        setisLoading(false)
+        setmsg('')
       })
   }
   return (
@@ -36,6 +43,14 @@ export default function Index(props) {
           display: 'inline-flex'
         }}
       >
+        <Image
+          src="/images/loading-gif.gif"
+          width={70}
+          height={70}
+          alt="Loading..."
+          style={{ position: 'absolute', margin: 'auto', top: 0, display: isLoading ? 'block' : 'none' }}
+        />
+
         <div
           style={{
             alignSelf: 'stretch',
@@ -127,6 +142,7 @@ export default function Index(props) {
                     // console.log(textarea.value)
                     setmsg(textarea.value)
                   }}
+                  value={msg}
                 ></textarea>
               </div>
             </div>
