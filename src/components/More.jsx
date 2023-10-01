@@ -18,7 +18,7 @@ const Home = ({ data }) => {
     {
       name: 'Link',
       value: function () {
-        return <List1 path={'/api/data?Link=1'} ObjKey={'Link'} />
+        return <List1 path={'/api/Link'} ObjKey={'Link'} />
       }
     },
     {
