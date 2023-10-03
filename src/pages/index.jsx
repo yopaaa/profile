@@ -67,7 +67,7 @@ export async function getServerSideProps({ req, res, query }) {
     const getDatas = await getData([])
     const getLinks = await getLink([])
     data = { ...getDatas.payload, ...getLinks.payload }
-    console.log(data)
+    // console.log(data)
     if (isNewVisitor) {
       // set is visitor
       setCookie('isVisitor', 'true', {

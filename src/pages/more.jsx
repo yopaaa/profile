@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import More from '../components/More'
 import getData from '../js/getData'
+import { getLink } from '../js/getLinks'
 
 export default function Index({ data }) {
   const profile = '/images/profile.webp'
@@ -39,14 +40,16 @@ export default function Index({ data }) {
 }
 
 export async function getServerSideProps() {
-  const queryKey = ['name', 'address', 'work', 'githubUsername']
-
+  let data
   try {
-    const getDatas = await getData(queryKey)
+    const getDatas = await getData([])
+    // const getLinks = await getLink([])
+    data = { ...getDatas.payload }
+    // console.log(data)
     return {
       props: {
         isError: false,
-        data: getDatas
+        data
       }
     }
   } catch (error) {
