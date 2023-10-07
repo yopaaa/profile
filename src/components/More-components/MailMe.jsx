@@ -1,43 +1,54 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import style from '../../styles/MailMe.module.css'
 import axios from 'axios'
+import Image from 'next/image'
 
 const MailMe = () => {
-  const [mailBody, setMailBody] = useState('')
-  const [mailto, setmailto] = useState('')
   const [name, setName] = useState('Anonymous')
 
-  useEffect(() => {
+  const [msg, setmsg] = useState('')
+  const [isLoading, setisLoading] = useState(false)
+
+  function sendMsg() {
+    setisLoading(true)
+    const message = `message from ${name}, ${msg}`
+    console.log(message)
     axios
-      .get('/api/data?email=1')
+      .post('/api/anonymousmsg', { msg: message })
       .then((val) => {
-        setmailto(val.data.payload.email)
+        alert('thanks for a message')
       })
-      .catch((e) => {
-        console.log(e)
+      .catch((er) => {
+        alert(er.message)
       })
-  }, [])
+      .finally(() => {
+        setisLoading(false)
+        setmsg('')
+      })
+  }
 
   return (
     <div className={style.mailMeContainer}>
+      <Image
+        src="/images/loading-gif.gif"
+        width={70}
+        height={70}
+        alt="Loading..."
+        style={{ position: 'absolute', margin: 'auto', top: 0, display: isLoading ? 'block' : 'none' }}
+      />
+
       <div className={style.mailMeName}>
         <p>Name</p>
-        <input type="text" onChange={(ev) => setName(ev.target.value)} placeholder="Name" />
+        <input type="text" onChange={(ev) => setName(ev.target.value)} placeholder="Name" value={name} />
       </div>
       <br />
 
       <div className={style.mailMeTextArea}>
-        <textarea name="" id="" onChange={(ev) => setMailBody(ev.target.value)} style={{ maxHeight: 200 }}></textarea>
+        <textarea name="" id="" onChange={(ev) => setmsg(ev.target.value)} style={{ maxHeight: 200 }} value={msg}></textarea>
       </div>
 
       <br />
-      <a
-        rel="noreferrer"
-        href={`mailto:${mailto}?subject=${'message from ' + name + ' - profile.yopaaa.site'}&body=${mailBody}`}
-        target="_blank"
-      >
-        Send an Email
-      </a>
+      <button onClick={sendMsg}>Send Message</button>
     </div>
   )
 }
