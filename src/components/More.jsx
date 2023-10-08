@@ -26,7 +26,7 @@ const Home = ({ data }) => {
       value: function () {
         return (
           <List2
-            path={'/api/data?Certificate=1'}
+            path={'/api/Certificate'}
             ObjKey={'Certificate'}
             altText={<div style={{ fontStyle: 'italic' }}>No Certificate now :)</div>}
           />
@@ -34,9 +34,9 @@ const Home = ({ data }) => {
       }
     },
     {
-      name: 'Tools and Skils',
+      name: 'Tools and Skills',
       value: function () {
-        return <List1 path={'/api/data?Skills=1'} ObjKey={'Skills'} />
+        return <List1 path={'/api/Skills'} ObjKey={'Skills'} />
       }
     },
     {
@@ -44,7 +44,7 @@ const Home = ({ data }) => {
       value: function () {
         return (
           <List2
-            path={'/api/data?Experience=1'}
+            path={'/api/Experience'}
             ObjKey={'Experience'}
             altText={<div style={{ fontStyle: 'italic' }}>No work experience now :)</div>}
           />
@@ -55,7 +55,7 @@ const Home = ({ data }) => {
       name: 'Blog',
       value: function () {
         return (
-          <List2 path={'/api/data?Blog=1'} ObjKey={'Blog'} altText={<div style={{ fontStyle: 'italic' }}>No Blog now :)</div>} />
+          <List2 path={'/api/Blog'} ObjKey={'Blog'} altText={<div style={{ fontStyle: 'italic' }}>No Blog now :)</div>} />
         )
       }
     },
