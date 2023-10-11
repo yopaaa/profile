@@ -1,5 +1,5 @@
 /* mail me */
-.mailMeContainer>a {
+.mailMeContainer>button {
     background-color: blue;
     border-radius: 15px;
     padding: 10px;
