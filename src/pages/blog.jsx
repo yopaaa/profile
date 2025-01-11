@@ -149,8 +149,6 @@ export default function Index() {
           />
         </div>
 
-       
-
         <iframe
           width="100"
           height="100"
