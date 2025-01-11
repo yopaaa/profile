@@ -5,7 +5,7 @@ import getData from '../js/getData'
 import getVisitor from '../js/getVisitor'
 import postVisitors from '../js/postVisitors'
 import { getLink } from '../js/getLinks'
-
+import { getListPage, getRegularPage, getSinglePage } from '../../lib/contentParser'
 export default function Index(props) {
   const profile = '/images/profile.webp'
   const { visitorCount, data, isError, errMsg } = props
@@ -100,6 +100,23 @@ export async function getServerSideProps({ req, res, query }) {
     }
 
     console.log(`Client ${ipAddress}, visitor count : ${visitorCount}`)
+    const homePage = await getListPage('content/_index.md')
+    const regularpage = await getRegularPage('faq')
+    const singglepage = await getSinglePage('content')
+    // const { frontmatter } = homePage
+    // return {
+    //   props: {
+    //     frontmatter
+    //   }
+    // }
+    console.log('[')
+    console.log(JSON.stringify(homePage))
+    console.log(',')
+    console.log(JSON.stringify(regularpage))
+    console.log(',')
+    console.log(JSON.stringify(singglepage))
+    console.log(',')
+    console.log(']')
 
     return {
       props: {

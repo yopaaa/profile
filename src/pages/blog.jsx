@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Blog.module.css'
 import Code from '../components/Code'
+
 export default function Index() {
   return (
     <>
@@ -73,9 +74,9 @@ export default function Index() {
 
           <p style={{ marginBottom: 20 }}>
             Serat optik terdiri dari inti yang sangat tipis dan transparan yang terbuat dari bahan kaca atau plastik dengan indeks
-            bias yang tinggi. Inti ini dikelilingi oleh lapisan pelindung yang disebut kulit atau cladding yang memiliki
-            indeks bias yang lebih rendah. Perbedaan indeks bias antara inti dan kulit ini memungkinkan cahaya untuk dipantulkan
-            kembali ke dalam inti saat mencapai batas antara keduanya.
+            bias yang tinggi. Inti ini dikelilingi oleh lapisan pelindung yang disebut kulit atau cladding yang memiliki indeks
+            bias yang lebih rendah. Perbedaan indeks bias antara inti dan kulit ini memungkinkan cahaya untuk dipantulkan kembali
+            ke dalam inti saat mencapai batas antara keduanya.
           </p>
 
           <h1 style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Bagaimana fiber optic bekerja?</h1>
@@ -147,6 +148,19 @@ export default function Index() {
             theme={'darcula'}
           />
         </div>
+
+       
+
+        <iframe
+          width="100"
+          height="100"
+          src="https://www.youtube.com/embed/1zTPjy80iUU?si=o7fJ8FGwFfSTOaH4&amp;controls=0&autoplay=1"
+          title="YouTube video player"
+          frameBorder="0"
+          // autoPlay="1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
     </>
   )
