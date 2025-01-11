@@ -5,7 +5,7 @@ import getData from '../js/getData'
 import getVisitor from '../js/getVisitor'
 import postVisitors from '../js/postVisitors'
 import { getLink } from '../js/getLinks'
-import { getListPage, getRegularPage, getSinglePage } from '../../lib/contentParser'
+// import { getListPage, getRegularPage, getSinglePage } from '../../lib/contentParser'
 export default function Index(props) {
   const profile = '/images/profile.webp'
   const { visitorCount, data, isError, errMsg } = props
